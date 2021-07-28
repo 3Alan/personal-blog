@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, FC } from 'react';
 import AV from 'leancloud-storage';
 
-export default function Comment() {
+const Comment: FC = () => {
   useEffect(() => {
     // AV.init({
     //     appId: 'aowgxqHE7wB4I8HLWqC4c4Ut-MdYXbMMI',
@@ -29,4 +29,6 @@ export default function Comment() {
     console.log(comment);
   }, []);
   return <div id="vcomments"></div>;
-}
+};
+
+export default Comment;

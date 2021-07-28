@@ -1,5 +1,15 @@
 import DateFormatter from './date-formatter';
 import Link from 'next/link';
+import { FC } from 'react';
+
+export interface PostPreviewProps {
+  layout: string;
+  title: string;
+  coverImage: string;
+  date?: string;
+  excerpt?: string;
+  slug: string;
+}
 
 function Card({ children }) {
   return (
@@ -7,7 +17,8 @@ function Card({ children }) {
   );
 }
 
-function CoverLayout({ title, coverImage, date, excerpt, slug }) {
+const CoverLayout: FC<PostPreviewProps> = (props) => {
+  const { title, coverImage, date, excerpt, slug } = props;
   return (
     <Card>
       <Link as={`/posts/${slug}`} href="/posts/[slug]">
@@ -33,9 +44,10 @@ function CoverLayout({ title, coverImage, date, excerpt, slug }) {
       </Link>
     </Card>
   );
-}
+};
 
-function HeadImgLayout({ title, coverImage, date, excerpt, slug }) {
+const HeadImgLayout: FC<PostPreviewProps> = (props) => {
+  const { title, coverImage, date, excerpt, slug } = props;
   return (
     <Card>
       <div className="md:flex">
@@ -55,9 +67,11 @@ function HeadImgLayout({ title, coverImage, date, excerpt, slug }) {
       </div>
     </Card>
   );
-}
+};
 
-export default function PostPreview(props) {
+const PostPreview: FC<PostPreviewProps> = (props) => {
   const { layout } = props;
   return <>{layout === 'cover' ? <CoverLayout {...props} /> : <HeadImgLayout {...props} />}</>;
-}
+};
+
+export default PostPreview;

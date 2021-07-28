@@ -1,9 +1,10 @@
-import { useContext } from 'react';
+import { FC, useContext } from 'react';
+
 import { IconContext } from 'react-icons';
 import { FaMoon, FaSun, FaGithub } from 'react-icons/fa';
 import { ThemeContext, UPDATE_THEME } from '../ThemeContextProvider';
 
-export default function Tools() {
+const Tools: FC = () => {
   const { theme, dispatch } = useContext(ThemeContext);
 
   const toggleMode = () => {
@@ -34,4 +35,6 @@ export default function Tools() {
       </div>
     </div>
   );
-}
+};
+
+export default Tools;

@@ -33,6 +33,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     'react/prop-types': 0,
     'react/jsx-props-no-spreading': 0,
+    'import/extensions': 0,
     'import/order': 0,
     'no-console': 0,
     'react/self-closing-comp': 0,
@@ -40,10 +41,12 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': 0,
     'dot-notation': 0,
     'react/no-danger': 0,
-    'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
+    'react/jsx-filename-extension': 0,
+    'react/button-has-type': 0,
     'jsx-a11y/alt-text': 0,
     'jsx-a11y/no-static-element-interactions': 0,
     'jsx-a11y/click-events-have-key-events': 0,
+    '@typescript-eslint/no-explicit-any': 'off',
     'max-len': [
       'warn',
       {

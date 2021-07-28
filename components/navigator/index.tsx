@@ -3,7 +3,7 @@ import { FaBasketballBall } from 'react-icons/fa';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Tools from './Tools';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, FC } from 'react';
 import { FULL_PAGE_LIST, CSR } from '../../utils/constants';
 import { useScroll } from 'ahooks';
 import cn from 'classnames';
@@ -47,12 +47,13 @@ function NavList() {
   );
 }
 
-export default function Navigator() {
+const Navigator: FC = () => {
   let scroll;
   const router = useRouter();
   const [isFullPage, setIsFullPage] = useState(false);
 
   if (CSR) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     scroll = useScroll(document);
   }
 
@@ -61,7 +62,7 @@ export default function Navigator() {
       console.log('hashshdfhds', isFullPage);
       setIsFullPage(true);
     }
-  }, [router]);
+  }, [router, isFullPage]);
 
   return (
     <div
@@ -77,4 +78,6 @@ export default function Navigator() {
       </div>
     </div>
   );
-}
+};
+
+export default Navigator;

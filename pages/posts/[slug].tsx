@@ -6,15 +6,21 @@ import PostBody from '../../components/post/PostBody';
 import Header from '../../components/post/Header';
 import PostHeader from '../../components/post/PostHeader';
 import Layout from '../../components/Layout';
-import { getPostBySlug, getAllPosts } from '../../utils/api';
+import { getPostBySlug, getAllPosts } from '../../utils/postTool';
 import PostTitle from '../../components/PostTitle';
 import Head from 'next/head';
 import markdownToHtml from '../../utils/markdownToHtml';
 import CoverImage from '../../components/CoverImage';
 import MenuBar from '../../components/MeunBar';
 import Toc from '../../components/post/Toc';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { FC } from 'react';
 
-export default function Post({ post, morePosts }) {
+export type PostProps = {
+  post: any;
+};
+
+const Post: FC<PostProps> = ({ post }) => {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -28,12 +34,9 @@ export default function Post({ post, morePosts }) {
       </Head>
       <Layout hasNav={false}>
         <CoverImage
-          title="123"
           src="https://cdn.jsdelivr.net/gh/ihewro/blog@master/usr/uploads/2019/01/762065921.jpg"
           title={post.title}
-          coverImage={post.coverImage}
           date={post.date}
-          author={post.author}
         />
         <Container>
           {router.isFallback ? (
@@ -56,10 +59,18 @@ export default function Post({ post, morePosts }) {
       </Layout>
     </>
   );
-}
+};
 
-export async function getStaticProps({ params }) {
-  const post = getPostBySlug(params.slug, ['title', 'date', 'slug', 'author', 'content', 'ogImage', 'coverImage']);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const post = getPostBySlug(params.slug as string, [
+    'title',
+    'date',
+    'slug',
+    'author',
+    'content',
+    'ogImage',
+    'coverImage'
+  ]);
   const content = await markdownToHtml(post.content || '');
 
   return {
@@ -70,9 +81,9 @@ export async function getStaticProps({ params }) {
       }
     }
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const posts = getAllPosts(['slug']);
 
   return {
@@ -85,4 +96,6 @@ export async function getStaticPaths() {
     }),
     fallback: false
   };
-}
+};
+
+export default Post;

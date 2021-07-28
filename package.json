@@ -16,7 +16,7 @@
     "ahooks": "^2.9.3",
     "autoprefixer": "^10.0.2",
     "classnames": "2.2.6",
-    "date-fns": "2.10.0",
+    "dayjs": "^1.10.6",
     "framer-motion": "^3.1.1",
     "gray-matter": "4.0.2",
     "leancloud-storage": "^4.8.0",
@@ -32,6 +32,7 @@
     "valine": "^1.4.14"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.24",
     "@types/node": "^15.0.2",
     "@types/react": "^17.0.5",
     "@typescript-eslint/eslint-plugin": "^4.23.0",

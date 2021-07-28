@@ -17,7 +17,7 @@ function ThemeProvider() {
       document.documentElement.classList.remove('dark');
       dispatch({ type: UPDATE_THEME, value: 'light' });
     }
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (theme === 'dark') {

@@ -4,9 +4,16 @@ import DateFormatter from './date-formatter';
 import Tag from './Tag';
 import { FaEye } from 'react-icons/fa';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useState, FC } from 'react';
 
-export default function CoverImage({ title, src, slug, date }) {
+export interface CoverImageProps {
+  title: string;
+  src: string;
+  date: string;
+  slug?: boolean;
+}
+
+const CoverImage: FC<CoverImageProps> = ({ title, src, slug, date }) => {
   const router = useRouter();
   const [pathName] = useState(router.asPath);
   const image = (
@@ -50,4 +57,6 @@ export default function CoverImage({ title, src, slug, date }) {
       )}
     </div>
   );
-}
+};
+
+export default CoverImage;

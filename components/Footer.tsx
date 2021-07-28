@@ -1,9 +1,10 @@
+import { FC } from 'react';
 import { IconContext } from 'react-icons';
 import { FaBasketballBall } from 'react-icons/fa';
 import { ImGithub } from 'react-icons/im';
 import { MdEmail } from 'react-icons/md';
 
-export default function Footer() {
+const Footer: FC = () => {
   return (
     <div
       style={{ boxShadow: '0 10px 15px -3px black' }}
@@ -33,6 +34,8 @@ export default function Footer() {
                 </div>
               </IconContext.Provider>
             </a>
+
+            {/* TODO: 待优化 */}
             <a className="text-gray-500">
               <IconContext.Provider value={{}}>
                 <div className="text-lg text-gray-400">
@@ -45,4 +48,6 @@ export default function Footer() {
       </footer>
     </div>
   );
-}
+};
+
+export default Footer;

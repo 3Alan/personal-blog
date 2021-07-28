@@ -1,11 +1,12 @@
 import ReactFullpage from '@fullpage/react-fullpage';
+import { FC } from 'react';
 
-export default function Resume() {
+const Resume: FC = () => {
   return (
     <ReactFullpage
       licenseKey="YOUR_KEY_HERE"
       scrollingSpeed={1000} /* Options here */
-      render={({ state, fullpageApi }) => {
+      render={({ fullpageApi }) => {
         return (
           <ReactFullpage.Wrapper>
             <div className="section bg-red-400">
@@ -23,4 +24,6 @@ export default function Resume() {
       }}
     />
   );
-}
+};
+
+export default Resume;

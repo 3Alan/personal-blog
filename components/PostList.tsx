@@ -1,6 +1,11 @@
+import { FC } from 'react';
 import PostPreview from './PostPreview';
 
-export default function PostList({ posts }) {
+export interface PostListProps {
+  posts: any[];
+}
+
+const PostList: FC<PostListProps> = ({ posts }) => {
   return (
     <section>
       <div className="overflow-hidden">
@@ -20,4 +25,6 @@ export default function PostList({ posts }) {
       </div>
     </section>
   );
-}
+};
+
+export default PostList;

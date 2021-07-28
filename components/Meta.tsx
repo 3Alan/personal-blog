@@ -1,7 +1,8 @@
 import Head from 'next/head';
+import { FC } from 'react';
 import { CMS_NAME, HOME_OG_IMAGE_URL } from '../utils/constants';
 
-export default function Meta() {
+const Meta: FC = () => {
   return (
     <Head>
       <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
@@ -23,4 +24,6 @@ export default function Meta() {
       />
     </Head>
   );
-}
+};
+
+export default Meta;
