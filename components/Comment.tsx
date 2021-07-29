@@ -3,6 +3,9 @@ import AV from 'leancloud-storage';
 
 // TODO: 密钥通过参数传递，不要明文显示
 const Comment: FC = () => {
+  console.log(process.env.NODE_ENV.NEXT_PUBLIC_LEANCLOUD_ID);
+  console.log(process.env.NODE_ENV.NEXT_PUBLIC_LEANCLOUD_KEY);
+
   useEffect(() => {
     (async () => {
       // AV.init({
