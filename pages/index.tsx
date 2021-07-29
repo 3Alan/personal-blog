@@ -1,6 +1,6 @@
 import Container from '../components/Container';
 import PostList from '../components/PostList';
-import Intro from '../components/intro';
+import Intro from '../components/Intro';
 import Layout from '../components/Layout';
 import { getAllPosts } from '../utils/postTool';
 import Head from 'next/head';
