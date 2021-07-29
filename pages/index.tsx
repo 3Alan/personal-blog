@@ -6,6 +6,7 @@ import { getAllPosts } from '../utils/postTool';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import { FC } from 'react';
+import RecentComments from '../components/widgets/RecentComments';
 
 export interface IndexProps {
   allPosts: any[];
@@ -22,6 +23,7 @@ const Index: FC<IndexProps> = ({ allPosts }) => {
         </Head>
         <Container>
           <Intro />
+          <RecentComments />
           {morePosts.length > 0 && <PostList posts={morePosts} />}
         </Container>
       </Layout>

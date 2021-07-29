@@ -1,0 +1,16 @@
+#wcomments {
+  --waline-theme-color: #60a5fa;
+  --waline-active-color: #3b82f6;
+
+  @apply dark:text-gray-300;
+
+  a {
+    @apply text-blue-400;
+  }
+
+  pre {
+    background: #142939;
+
+    @apply rounded-md;
+  }
+}

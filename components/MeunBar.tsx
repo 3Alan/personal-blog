@@ -22,7 +22,7 @@ const MenuBar: FC = () => {
   };
 
   const scrollToComment = () => {
-    const vComment = document.getElementById('vcomments');
+    const vComment = document.getElementById('wcomments');
     vComment.scrollIntoView();
   };
 

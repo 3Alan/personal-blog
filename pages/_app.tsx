@@ -1,4 +1,4 @@
-import '../styles/index.css';
+import '../styles/index.scss';
 import 'highlight.js/styles/atom-one-dark.css';
 import { ThemeContextProvider, ThemeContext, UPDATE_THEME } from '../components/ThemeContextProvider';
 import { useContext, useEffect } from 'react';
