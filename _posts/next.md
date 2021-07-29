@@ -51,7 +51,7 @@ pages/about.js/jsx/ts/tsx → /about
 pages/dashboard/settings/username.js → /dashboard/settings/username
 ```
 
-### 自带路由：`next/router` `next/link`
+### 自带路由：router/link
 
 使用与`react-router`类似，包括编程式跳转`router.push`以及组件式跳转`<Link href="/about"><a>click me</a></Link>`
 
@@ -252,7 +252,7 @@ module.exports = {
 
 
 
-### 封装axios在每次请求时显示`spin`组件
+### 封装axios在每次请求时显示spin组件
 
 这里要注意一点，由于服务端不存在`document`，所以要判断一下当前所处的环境再去执行操作。
 

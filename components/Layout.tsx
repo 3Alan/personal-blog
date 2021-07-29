@@ -5,10 +5,12 @@ import cn from 'classnames';
 import { FC } from 'react';
 
 export interface LayoutProps {
+  id?: string;
   hasNav?: boolean;
 }
 
-const Layout: FC<LayoutProps> = ({ children, hasNav = true }) => {
+const Layout: FC<LayoutProps> = (props) => {
+  const { children, hasNav = true, id } = props;
   return (
     <>
       <Meta />
@@ -18,7 +20,7 @@ const Layout: FC<LayoutProps> = ({ children, hasNav = true }) => {
           'pt-16': hasNav
         })}
       >
-        <main>{children}</main>
+        <main id={id}>{children}</main>
       </div>
       <Footer />
     </>

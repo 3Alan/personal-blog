@@ -30,7 +30,7 @@
 - pin
 
 ## 文章详情页
-- [x] code 苹果窗口美化
+- [x] code 苹果窗口美化(增加行数https://github.com/slidevjs/slidev/pull/311/files)
 - [x] highlight
 - [ ] 多窗口
 - [x] 评论

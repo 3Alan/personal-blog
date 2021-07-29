@@ -26,8 +26,11 @@
     "react-dom": "^16.13.0",
     "react-icons": "^4.2.0",
     "remark": "11.0.2",
+    "remark-autolink-headings": "^6.0.1",
     "remark-highlight.js": "^6.0.0",
     "remark-html": "10.0.0",
+    "remark-slug": "^6.1.0",
+    "sass": "^1.36.0",
     "serve": "11.3.2",
     "valine": "^1.4.14"
   },

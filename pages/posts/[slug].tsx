@@ -32,7 +32,7 @@ const Post: FC<PostProps> = ({ post }) => {
         <title>Alan Blog | {post.title}</title>
         <meta property="og:image" content={post.ogImage.url} />
       </Head>
-      <Layout hasNav={false}>
+      <Layout hasNav={false} id="post">
         <CoverImage
           src="https://cdn.jsdelivr.net/gh/ihewro/blog@master/usr/uploads/2019/01/762065921.jpg"
           title={post.title}
@@ -52,7 +52,7 @@ const Post: FC<PostProps> = ({ post }) => {
                   <Comment />
                 </div>
               </div>
-              <Toc />
+              <Toc hostId="post" />
             </div>
           )}
         </Container>

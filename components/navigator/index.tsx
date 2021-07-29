@@ -59,7 +59,6 @@ const Navigator: FC = () => {
 
   useEffect(() => {
     if (FULL_PAGE_LIST.includes(router.pathname)) {
-      console.log('hashshdfhds', isFullPage);
       setIsFullPage(true);
     }
   }, [router, isFullPage]);
