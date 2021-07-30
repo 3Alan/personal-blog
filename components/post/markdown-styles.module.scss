@@ -51,8 +51,17 @@
 .markdown pre code {
   position: relative;
   padding: 40px 14px 15px;
+  counter-reset: step;
+  counter-increment: step 0;
 
   @apply text-sm;
+}
+
+.markdown pre code .line::before {
+  content: counter(step);
+  counter-increment: step;
+
+  @apply w-4 mr-6 inline-block text-right text-gray-400 dark:text-gray-600;
 }
 
 .markdown pre::after {

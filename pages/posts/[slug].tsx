@@ -15,6 +15,7 @@ import MenuBar from '../../components/MeunBar';
 import Toc from '../../components/post/Toc';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { FC } from 'react';
+import markdownToHtmlByShiki from '../../utils/shiki';
 
 export type PostProps = {
   post: any;
@@ -71,7 +72,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     'ogImage',
     'coverImage'
   ]);
-  const content = await markdownToHtml(post.content || '');
+  const content = await markdownToHtmlByShiki(post.content || '');
 
   return {
     props: {

@@ -456,7 +456,7 @@ module.exports = {
 
 #### dockerfile
 
-```dockerfile
+```docker
 # node版本号
 FROM node:12-alpine
 

@@ -53,7 +53,6 @@ const RecentComments: FC<RecentCommentsProps> = ({ className }) => {
         count: 5
       });
       setList(commentList.comments);
-      console.log(commentList);
     })();
   }, []);
 
