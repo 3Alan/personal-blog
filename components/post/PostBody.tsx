@@ -1,4 +1,4 @@
-import markdownStyles from './markdown-styles.module.scss';
+import mdStyle from './markdown-styles.module.scss';
 import cn from 'classnames';
 import { FC } from 'react';
 
@@ -7,12 +7,7 @@ type PostBodyProps = {
 };
 
 const PostBody: FC<PostBodyProps> = ({ content }) => {
-  return (
-    <div
-      className={cn('dark:text-gray-300', markdownStyles['markdown'])}
-      dangerouslySetInnerHTML={{ __html: content }}
-    />
-  );
+  return <div className={cn('dark:text-gray-300', mdStyle.markdown)} dangerouslySetInnerHTML={{ __html: content }} />;
 };
 
 export default PostBody;

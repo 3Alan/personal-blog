@@ -3,19 +3,16 @@ import ErrorPage from 'next/error';
 import Container from '../../components/Container';
 import Comment from '../../components/Comment';
 import PostBody from '../../components/post/PostBody';
-import Header from '../../components/post/Header';
-import PostHeader from '../../components/post/PostHeader';
 import Layout from '../../components/Layout';
 import { getPostBySlug, getAllPosts } from '../../utils/postTool';
 import PostTitle from '../../components/PostTitle';
 import Head from 'next/head';
-import markdownToHtml from '../../utils/markdownToHtml';
 import CoverImage from '../../components/CoverImage';
 import MenuBar from '../../components/MeunBar';
-import Toc from '../../components/post/Toc';
+import Toc from '../../components/post/toc';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { FC } from 'react';
-import markdownToHtmlByShiki from '../../utils/shiki';
+import markdownToHtml from '../../utils/markdownToHtml';
 
 export type PostProps = {
   post: any;
@@ -44,8 +41,11 @@ const Post: FC<PostProps> = ({ post }) => {
             <PostTitle>Loading…</PostTitle>
           ) : (
             <div className="flex flex-row">
-              <div className="w-full lg:max-w-screen-md">
-                <article className="py-2 px-4 mt-2 mr-2 my-6 rounded-xl dark:bg-dark-content bg-gray-50">
+              <div className="w-full lg:max-w-screen-md mr-4">
+                <article
+                  style={{ width: 768 }}
+                  className="py-2 px-4 mt-2 mr-2 my-6 rounded-xl dark:bg-dark-content bg-gray-50"
+                >
                   {/* <PostHeader /> */}
                   <PostBody content={post.content} />
                 </article>
@@ -53,7 +53,7 @@ const Post: FC<PostProps> = ({ post }) => {
                   <Comment />
                 </div>
               </div>
-              <Toc hostId="post" />
+              <Toc content={post.toc} />
             </div>
           )}
         </Container>
@@ -72,13 +72,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     'ogImage',
     'coverImage'
   ]);
-  const content = await markdownToHtmlByShiki(post.content || '');
+  const { content, toc } = await markdownToHtml(post.content || '');
 
   return {
     props: {
       post: {
         ...post,
-        content
+        content,
+        toc
       }
     }
   };

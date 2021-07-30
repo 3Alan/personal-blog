@@ -85,7 +85,7 @@ router.push('/about')
 - 客户端获取数据
   - SWR（官方推荐）
 
-**注意：**在开发环境中`getStaticProps`和`getStaticPaths`每次请求都会被调用
+**注意**在开发环境中`getStaticProps`和`getStaticPaths`每次请求都会被调用
 
 使用，在**页面**文件中导出
 

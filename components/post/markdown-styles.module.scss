@@ -1,131 +1,136 @@
 .markdown {
   @apply text-base leading-relaxed font-sans text-gray-700;
-}
 
-.markdown p,
-.markdown ul,
-.markdown ol {
-  @apply my-2 leading-relaxed;
-}
+  p,
+  ul,
+  ol {
+    @apply my-2 leading-relaxed;
+  }
 
-.markdown a {
-  @apply italic text-blue-500 hover:underline;
-}
+  a {
+    @apply italic text-blue-500 hover:underline;
+  }
 
-.markdown strong {
-  @apply font-semibold;
-}
+  strong {
+    @apply font-semibold;
+  }
 
-.markdown img {
-  @apply mb-6 rounded-lg;
-}
+  img {
+    @apply mb-6 rounded-lg;
+  }
 
-.markdown ul {
-  @apply list-disc list-inside;
-}
+  ul {
+    @apply list-disc list-inside;
+  }
 
-.markdown li ul {
-  @apply ml-6;
-}
+  li ul {
+    @apply ml-6;
+  }
 
-.markdown li li {
-  list-style-type: circle;
-}
+  li li {
+    list-style-type: circle;
+  }
 
-.markdown ul p {
-  @apply inline-block;
-}
+  ul p {
+    @apply inline-block;
+  }
 
-.markdown p code,
-.markdown li code {
-  @apply text-xs bg-gray-100 text-blue-400 font-thin p-1 rounded m-1;
-}
+  p code,
+  li code {
+    @apply text-xs bg-gray-100 text-blue-400 font-thin p-1 rounded m-1;
+  }
 
-.markdown pre {
-  position: relative;
-  overflow-x: auto;
+  pre {
+    position: relative;
+    overflow-x: auto;
 
-  @apply mb-3 rounded-lg sm:rounded-xl shadow-xl;
-}
+    @apply mb-3 rounded-lg sm:rounded-xl shadow-xl;
 
-.markdown pre code {
-  position: relative;
-  padding: 40px 14px 15px;
-  counter-reset: step;
-  counter-increment: step 0;
+    code {
+      position: relative;
+      display: block;
+      padding: 40px 14px 15px 10px;
+      counter-reset: step;
+      counter-increment: step 0;
 
-  @apply text-sm;
-}
+      @apply text-sm;
 
-.markdown pre code .line::before {
-  content: counter(step);
-  counter-increment: step;
+      :global(.line)::before {
+        content: counter(step);
+        counter-increment: step;
 
-  @apply w-4 mr-6 inline-block text-right text-gray-400 dark:text-gray-600;
-}
+        @apply w-4 mr-4 inline-block text-right text-gray-500 dark:text-gray-600;
+      }
+    }
+  }
 
-.markdown pre::after {
-  background: #142939;
-  content: ' ';
-  height: 32px;
-  left: 0;
-  top: 0;
-  position: absolute;
-  width: 100%;
-  z-index: 2;
+  pre::after {
+    background: #142939;
+    content: ' ';
+    height: 32px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
 
-  @apply rounded-t-xl border-b border-white border-opacity-10;
-}
+    @apply rounded-t-xl border-b border-white border-opacity-10;
+  }
 
-.markdown pre::before {
-  background: #fc625d;
-  border-radius: 50%;
-  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
-  content: ' ';
-  height: 12px;
-  left: 12px;
-  top: 9px;
-  position: absolute;
-  width: 12px;
-  z-index: 9;
-}
+  pre::before {
+    background: #fc625d;
+    border-radius: 50%;
+    box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+    content: ' ';
+    height: 12px;
+    left: 12px;
+    top: 9px;
+    position: absolute;
+    width: 12px;
+    z-index: 9;
+  }
 
-.markdown blockquote {
-  border-left-width: 6px;
-  border-radius: 6px;
+  blockquote {
+    border-left-width: 6px;
+    border-radius: 6px;
 
-  @apply bg-gray-100 py-4 px-8 border-blue-500 mb-6 text-gray-500 font-light break-all;
-}
+    @apply text-sm bg-gray-100 py-4 px-8 border-blue-500 mb-6 text-gray-500 font-light break-all;
 
-.markdown blockquote code {
-  @apply bg-gray-200;
-}
+    code {
+      @apply bg-gray-200;
+    }
 
-.markdown blockquote a {
-  @apply text-blue-400;
-}
+    a {
+      @apply text-blue-400;
+    }
 
-.markdown blockquote strong {
-  @apply italic;
-}
+    strong {
+      @apply italic;
+    }
+  }
 
-.markdown h2,
-.markdown h3,
-.markdown h4 {
-  @apply font-medium;
-}
+  h2,
+  h3,
+  h4 {
+    @apply font-medium;
+  }
 
-.markdown h2 {
-  padding-bottom: 4px;
-  border-bottom: 1px solid #eaecef;
+  h2 {
+    padding-bottom: 4px;
+    border-bottom: 1px solid #eaecef;
 
-  @apply text-2xl mt-12 mb-4 leading-snug divide-y divide-gray-400;
-}
+    @apply text-2xl mt-12 mb-4 leading-snug divide-y divide-gray-400;
+  }
 
-.markdown h3 {
-  @apply text-xl mt-8 mb-4 leading-snug;
-}
+  h3 {
+    @apply text-xl mt-8 mb-4 leading-snug;
+  }
 
-.markdown h4 {
-  @apply text-lg my-4 leading-snug;
+  h4 {
+    @apply text-lg my-4 leading-snug;
+  }
+
+  nav:first-child {
+    display: none;
+  }
 }

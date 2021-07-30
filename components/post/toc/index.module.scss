@@ -1,0 +1,23 @@
+.wrap {
+  nav {
+    a {
+      @apply py-1 truncate block w-full pl-4;
+    }
+
+    a:hover {
+      @apply bg-gray-100 cursor-pointer text-blue-400 rounded;
+    }
+
+    ol {
+      li {
+        ol {
+          li {
+            a {
+              @apply pl-6 text-sm;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,14 +3,7 @@
 @import 'tailwindcss/utilities';
 @import './waline.scss';
 @import './hljs.scss';
-
-.ellipsis-2 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
+@import './tool.scss';
 
 html {
   scroll-behavior: smooth;
