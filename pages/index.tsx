@@ -1,6 +1,5 @@
 import Container from '../components/Container';
 import PostList from '../components/PostList';
-import Intro from '../components/Intro';
 import Layout from '../components/Layout';
 import { getAllPosts } from '../utils/postTool';
 import Head from 'next/head';
@@ -21,10 +20,11 @@ const Index: FC<IndexProps> = ({ allPosts }) => {
         <Head>
           <title>Alan | 前端博客</title>
         </Head>
-        <Container>
-          <Intro />
-          <RecentComments />
-          {morePosts.length > 0 && <PostList posts={morePosts} />}
+        <Container className="pt-8">
+          <div className="flex items-start">
+            {morePosts.length > 0 && <PostList posts={morePosts} className="md:mr-4" />}
+            <RecentComments className="hidden md:flex flex-1" />
+          </div>
         </Container>
       </Layout>
     </>

@@ -19,8 +19,9 @@ const Layout: FC<LayoutProps> = (props) => {
         className={cn('min-h-screen', {
           'pt-16': hasNav
         })}
+        id={id}
       >
-        <main id={id}>{children}</main>
+        {children}
       </div>
       <Footer />
     </>

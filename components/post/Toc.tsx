@@ -22,7 +22,7 @@ const Toc: FC<TocProps> = ({ hostId }) => {
   }, [hostId]);
 
   return (
-    <div className="py-4 px-2 h-96 sticky top-20 mt-2 mb-10 rounded-xl bg-white lg:flex lg:flex-1 dark:bg-dark-content dark:text-gray-300 flex-col">
+    <div className="hidden py-4 px-2 h-96 sticky top-20 mt-2 mb-10 rounded-xl bg-white lg:flex lg:flex-1 lg:flex-col dark:bg-dark-content dark:text-gray-300">
       <div>目录</div>
       <div className="flex-1 pl-4 text-sm overflow-y-auto">
         {list.map((item, key) => (

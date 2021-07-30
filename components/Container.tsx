@@ -1,12 +1,14 @@
 import { FC } from 'react';
 
 interface ContainerProps {
+  className?: string;
   width?: string;
 }
 
-const Container: FC<ContainerProps> = ({ children, width = 'max-w-screen-lg' }) => {
+const Container: FC<ContainerProps> = (props) => {
+  const { className, children, width = 'max-w-screen-lg' } = props;
   return (
-    <div className="w-full pb-10 dark:bg-dark-bg transition-colors bg-gray-50">
+    <div className={`w-full pb-10 dark:bg-dark-bg transition-colors bg-gray-50 ${className}`}>
       <div className={`container mx-auto ${width}`}>{children}</div>
     </div>
   );

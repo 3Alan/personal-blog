@@ -1,11 +1,10 @@
 ---
 title: 'Next.js学习笔记'
 excerpt: '这段时间工作要求将之前的vue的H5活动页面转移到Next.js下面，经过一段时间的研究，总结出了下面的内容。'
-coverImage: '/assets/blog/preview/cover.jpg'
+coverImage: '/assets/blog/next.jpg'
 date: '2020-03-16T05:35:07.322Z'
 ogImage:
-  url: '/assets/blog/preview/cover.jpg'
-layout: 'cover'
+  url: '/assets/blog/next.jpg'
 ---
 
 这段时间工作要求将之前的vue的H5活动页面转移到Next.js下面，经过一段时间的研究，总结出了下面的内容。

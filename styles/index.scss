@@ -4,14 +4,12 @@
 @import './waline.scss';
 @import './hljs.scss';
 
-@media screen and (min-width: 768px) {
-  .ellipsis-2 {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
+.ellipsis-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 html {

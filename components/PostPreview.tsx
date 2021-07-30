@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { FC } from 'react';
 
 export interface PostPreviewProps {
-  layout: string;
+  layout?: string;
   title: string;
   coverImage: string;
   date?: string;
@@ -13,56 +13,34 @@ export interface PostPreviewProps {
 
 function Card({ children }) {
   return (
-    <div className="bg-white shadow-card rounded-xl overflow-hidden max-w-screen-md mx-1 mb-10 sm:mx-2">{children}</div>
+    <div className="bg-white shadow-card mb-5 rounded md:rounded-xl overflow-hidden mx-1 md:mb-10 sm:mx-2">
+      {children}
+    </div>
   );
 }
 
-const CoverLayout: FC<PostPreviewProps> = (props) => {
-  const { title, coverImage, date, excerpt, slug } = props;
-  return (
-    <Card>
-      <Link as={`/posts/${slug}`} href="/posts/[slug]">
-        <a>
-          <div className="relative w-full h-56 overflow-hidden md:h-80 text-white">
-            <div className="absolute inset-0 w-full h-full">
-              <img
-                className="object-cover w-full h-full"
-                src="https://cdn.jsdelivr.net/gh/ihewro/blog@master/usr/uploads/2019/01/762065921.jpg"
-              />
-              {/* <img className="object-cover w-full" src={coverImage} /> */}
-            </div>
-
-            <div className="absolute bottom-0 px-10 pb-5 w-full">
-              <h3 className="text-2xl mb-2 leading-snug truncate">{title}</h3>
-              <p className="text-base leading-relaxed mb-2 hidden md:block ellipsis-2">{excerpt}</p>
-              <div className="text-sm hidden md:block">
-                <DateFormatter dateString={date} />
-              </div>
-            </div>
-          </div>
-        </a>
-      </Link>
-    </Card>
-  );
-};
-
 const HeadImgLayout: FC<PostPreviewProps> = (props) => {
-  const { title, coverImage, date, excerpt, slug } = props;
+  const { title, coverImage, date, slug, excerpt } = props;
+
   return (
     <Card>
-      <div className="md:flex">
-        <div className="md:flex-shrink-0">
-          <img className="h-48 w-full object-cover md:w-48" src={coverImage} />
+      <div className="md:flex p-4">
+        <div className="hidden md:flex md:flex-shrink-0 rounded overflow-hidden">
+          <img className="h-40 w-40 object-cover" src={coverImage} />
         </div>
-        <div className="p-8">
-          <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
-          <Link as={`/posts/${slug}`} href="/posts/[slug]">
-            <a className="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{title}</a>
-          </Link>
-          <p className="mt-2 text-gray-500">
-            Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your
-            first customers.
-          </p>
+        <div className="md:pl-6 md:py-2 flex flex-col justify-between">
+          <div className="mb-4">
+            <Link as={`/posts/${slug}`} href="/posts/[slug]">
+              <a className="block text-base leading-tight font-bold text-gray-700 hover:underline">{title}</a>
+            </Link>
+            <p className="text-sm mt-2 text-gray-500 break-words">{excerpt}</p>
+          </div>
+          <div className="flex justify-between text-xs text-gray-400">
+            <div>
+              <DateFormatter dateString={date} />
+            </div>
+            <div>1542 reviews</div>
+          </div>
         </div>
       </div>
     </Card>
@@ -70,8 +48,7 @@ const HeadImgLayout: FC<PostPreviewProps> = (props) => {
 };
 
 const PostPreview: FC<PostPreviewProps> = (props) => {
-  const { layout } = props;
-  return <>{layout === 'cover' ? <CoverLayout {...props} /> : <HeadImgLayout {...props} />}</>;
+  return <HeadImgLayout {...props} />;
 };
 
 export default PostPreview;
