@@ -10,7 +10,7 @@ export default async (req, res) => {
   console.log(dirs(process.cwd()));
 
   const fullPath = join(postsDirectory, 'data.js');
-  const fileContents = JSON.parse(fs.readFileSync('/var/task/cache/data.js', 'utf8'));
+  const fileContents = JSON.parse(fs.readFileSync(join(__dirname, '../../cache//data.js'), 'utf8'));
   console.log(fileContents);
 
   const options = {
