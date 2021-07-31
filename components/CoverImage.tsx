@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import Link from 'next/link';
-import DateFormatter from './date-formatter';
+import DateFormatter from './DateFormatter';
 import Tag from './Tag';
 import { FaEye } from 'react-icons/fa';
 import { useRouter } from 'next/router';

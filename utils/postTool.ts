@@ -1,6 +1,7 @@
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
+import { isArray } from './verify';
 
 const postsDirectory = join(process.cwd(), '_posts');
 
@@ -12,9 +13,9 @@ export function getPostBySlug(slug: string, fields = []): any {
   const realSlug = slug.replace(/\.md$/, '');
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const { data, content } = matter(fileContents);
+  const { data, excerpt, content } = matter(fileContents, { excerpt_separator: '<!-- more -->' });
 
-  const items = {};
+  const items = { excerpt };
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
@@ -40,4 +41,31 @@ export function getAllPosts(fields = []): any[] {
     // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
+}
+
+export function unique(arr: any[]): any[] {
+  const res = new Map();
+  return arr.filter((a) => !res.has(a.id) && res.set(a.id, 1));
+}
+
+// TODO: 算法待优化
+export function getRelatedPosts(tags: any[], slug: string, num = 3): any[] {
+  if (!isArray(tags)) return [];
+  // filter yourself
+  const allPosts = getAllPosts(['title', 'date', 'slug', 'excerpt', 'tags']).filter((item) => item.slug !== slug);
+
+  let relatedPosts = [];
+  for (let index = 0; index < tags.length; index++) {
+    if (relatedPosts.length > num) break;
+
+    const element = tags[index];
+    const related = allPosts.filter((item) => {
+      if (item.tags) {
+        return item.tags.includes(element);
+      }
+      return false;
+    });
+    relatedPosts = relatedPosts.concat(related);
+  }
+  return unique(relatedPosts);
 }

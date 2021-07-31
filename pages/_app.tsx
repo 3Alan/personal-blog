@@ -1,6 +1,7 @@
 import '../styles/index.scss';
 import { ThemeContextProvider, ThemeContext, UPDATE_THEME } from '../components/ThemeContextProvider';
 import { useContext, useEffect } from 'react';
+import type { AppProps /* , AppContext */ } from 'next/app';
 
 function ThemeProvider() {
   const { theme, dispatch } = useContext(ThemeContext);
@@ -28,13 +29,13 @@ function ThemeProvider() {
   return null;
 }
 
-export default function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <ThemeContextProvider>
-        <ThemeProvider />
-        <Component {...pageProps} />
-      </ThemeContextProvider>
-    </>
+    <ThemeContextProvider>
+      <ThemeProvider />
+      <Component {...pageProps} />
+    </ThemeContextProvider>
   );
 }
+
+export default MyApp;

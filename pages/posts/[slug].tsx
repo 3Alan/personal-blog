@@ -4,7 +4,7 @@ import Container from '../../components/Container';
 import Comment from '../../components/Comment';
 import PostBody from '../../components/post/PostBody';
 import Layout from '../../components/Layout';
-import { getPostBySlug, getAllPosts } from '../../utils/postTool';
+import { getPostBySlug, getAllPosts, getRelatedPosts } from '../../utils/postTool';
 import PostTitle from '../../components/PostTitle';
 import Head from 'next/head';
 import CoverImage from '../../components/CoverImage';
@@ -13,13 +13,19 @@ import Toc from '../../components/post/toc';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { FC } from 'react';
 import markdownToHtml from '../../utils/markdownToHtml';
+import RelatedPosts from '../../components/widgets/RelatedPosts';
+import { isEmptyArray } from '../../utils/verify';
 
+// TODO: 类型待完善
 export type PostProps = {
   post: any;
+  relatedPosts: any[];
 };
 
-const Post: FC<PostProps> = ({ post }) => {
+const Post: FC<PostProps> = ({ post, relatedPosts }) => {
   const router = useRouter();
+  console.log(relatedPosts);
+
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
@@ -46,9 +52,11 @@ const Post: FC<PostProps> = ({ post }) => {
                   style={{ width: 768 }}
                   className="py-2 px-4 mt-2 mr-2 my-6 rounded-xl dark:bg-dark-content bg-gray-50"
                 >
-                  {/* <PostHeader /> */}
                   <PostBody content={post.content} />
                 </article>
+
+                {!isEmptyArray(relatedPosts) && <RelatedPosts list={relatedPosts} />}
+
                 <div className="py-8 px-4 my-2 mr-2 shadow-card rounded-xl dark:bg-dark-content bg-white">
                   <Comment />
                 </div>
@@ -70,8 +78,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     'author',
     'content',
     'ogImage',
-    'coverImage'
+    'coverImage',
+    'tags'
   ]);
+
+  const relatedPosts = getRelatedPosts(post.tags, post.slug);
+
   const { content, toc } = await markdownToHtml(post.content || '');
 
   return {
@@ -80,7 +92,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         ...post,
         content,
         toc
-      }
+      },
+      relatedPosts
     }
   };
 };
