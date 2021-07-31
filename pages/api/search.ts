@@ -5,10 +5,12 @@ import { join } from 'path';
 export default async (req, res) => {
   const { key } = req.query;
   const postsDirectory = join(process.cwd(), 'cache');
-  console.log(postsDirectory);
+
+  const dirs = (p) => fs.readdirSync(p).filter((f) => fs.statSync(join(p, f)).isDirectory());
+  console.log(dirs(process.cwd()));
 
   const fullPath = join(postsDirectory, 'data.js');
-  const fileContents = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
+  const fileContents = JSON.parse(fs.readFileSync('../../cache/data.js', 'utf8'));
   console.log(fileContents);
 
   const options = {
