@@ -3,7 +3,11 @@ const fs = require('fs');
 const { join } = require('path');
 const matter = require('gray-matter');
 
-const postsDirectory = join(process.cwd(), '_posts');
+function getRealPath(path) {
+  return join(process.cwd(), path);
+}
+
+const postsDirectory = getRealPath('_posts');
 console.log(postsDirectory, 'postsDirectory');
 
 function getPostSlugs() {
@@ -47,12 +51,15 @@ function getAllPosts(fields = []) {
 const data = JSON.stringify(getAllPosts(['title', 'content', 'slug', 'tags']));
 
 try {
-  fs.readdirSync('cache');
+  fs.readdirSync(getRealPath('cache'));
 } catch (error) {
-  fs.mkdirSync('cache');
+  fs.mkdirSync(getRealPath('cache'));
 }
 
-fs.writeFile('cache/data.js', data, (err) => {
+fs.writeFile(getRealPath('cache/data.js'), data, (err) => {
   if (err) console.log(err);
   console.log('posts cached');
 });
+
+const dirs = (p) => fs.readdirSync(p).filter((f) => fs.statSync(join(p, f)).isDirectory());
+console.log(dirs(process.cwd()));

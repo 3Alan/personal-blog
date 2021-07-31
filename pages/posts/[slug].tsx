@@ -24,7 +24,6 @@ export type PostProps = {
 
 const Post: FC<PostProps> = ({ post, relatedPosts }) => {
   const router = useRouter();
-  console.log(relatedPosts);
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
