@@ -36,5 +36,6 @@
 - [ ] 自动化测试？
 
 ## 一些点子✨
-- 搜索功能 https://github.com/krisk/fuse
+- 搜索功能的一些思路 https://github.com/krisk/fuse
+  https://medium.com/@matswainson/building-a-search-component-for-your-next-js-markdown-blog-9e75e0e7d210
 - https://github.com/vivek9patel/vivek9patel.github.io
