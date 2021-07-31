@@ -1,4 +1,6 @@
 目前仅在实现功能，整体的UI设计及交互还在寻找灵感
+
+搭配vercel实现自动部署
 ## 功能
 - [ ] 搜索
 - [x] code 苹果窗口美化(增加行数https://github.com/slidevjs/slidev/pull/311/files)
@@ -25,7 +27,13 @@
 - ?图片
 - 顶置
 
-# 代码、工程方面
+## 非功能
+- [ ] SEO
+- [ ] 优化写博客流程，提升效率
+
+## 代码、工程方面
+- [ ] husky+commitlint
+- [ ] 自动化测试？
 
 ## 一些点子✨
 - 搜索功能 https://github.com/krisk/fuse
