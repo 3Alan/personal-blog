@@ -8,9 +8,12 @@ export default async (req, res) => {
 
   const dirs = (p) => fs.readdirSync(p).filter((f) => fs.statSync(join(p, f)).isDirectory());
   console.log(dirs(process.cwd()));
+  console.log(dirs(__dirname));
 
-  const fullPath = join(postsDirectory, 'data.js');
-  const fileContents = JSON.parse(fs.readFileSync(join(__dirname, '../../cache/data.js'), 'utf8'));
+  const fullPath = join(postsDirectory, __dirname, '__dirname', 'data.js');
+  console.log();
+
+  const fileContents = JSON.parse(fs.readFileSync('public/cache/data.js', 'utf8'));
   console.log(fileContents);
 
   const options = {

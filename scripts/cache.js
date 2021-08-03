@@ -51,12 +51,13 @@ function getAllPosts(fields = []) {
 const data = JSON.stringify(getAllPosts(['title', 'content', 'slug', 'tags']));
 
 try {
-  fs.readdirSync(getRealPath('cache'));
+  fs.readdirSync(getRealPath('public/cache'));
 } catch (error) {
-  fs.mkdirSync(getRealPath('cache'));
+  fs.mkdirSync(getRealPath('public/cache'));
 }
 
-fs.writeFile(getRealPath('cache/data.js'), data, (err) => {
+// TODO: 打包进.next中？
+fs.writeFile(getRealPath('public/cache/data.js'), data, (err) => {
   if (err) console.log(err);
   console.log('posts cached');
 });
