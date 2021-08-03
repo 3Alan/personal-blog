@@ -48,19 +48,15 @@ function getAllPosts(fields = []) {
   return posts;
 }
 
-const data = JSON.stringify(getAllPosts(['title', 'content', 'slug', 'tags']));
+const data = `export const posts = ${JSON.stringify(getAllPosts(['title', 'content', 'slug', 'tags']))}`;
 
 try {
-  fs.readdirSync(getRealPath('public/cache'));
+  fs.readdirSync(getRealPath('cache'));
 } catch (error) {
-  fs.mkdirSync(getRealPath('public/cache'));
+  fs.mkdirSync(getRealPath('cache'));
 }
 
-// TODO: 打包进.next中？
-fs.writeFile(getRealPath('public/cache/data.js'), data, (err) => {
+fs.writeFile(getRealPath('cache/data.js'), data, (err) => {
   if (err) console.log(err);
   console.log('posts cached');
 });
-
-const dirs = (p) => fs.readdirSync(p).filter((f) => fs.statSync(join(p, f)).isDirectory());
-console.log(dirs(process.cwd()));

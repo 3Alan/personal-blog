@@ -1,20 +1,14 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import Fuse from 'fuse.js';
-import fs from 'fs';
-import { join } from 'path';
+import { getAllPosts } from '../../utils/postTool';
+
+const posts =
+  process.env.NODE_ENV === 'production'
+    ? require('../../cache/data').posts
+    : getAllPosts(['title', 'content', 'slug', 'tags']);
 
 export default async (req, res) => {
   const { key } = req.query;
-  const postsDirectory = join(process.cwd(), 'cache');
-
-  const dirs = (p) => fs.readdirSync(p).filter((f) => fs.statSync(join(p, f)).isDirectory());
-  console.log(dirs(process.cwd()));
-  console.log(dirs(__dirname));
-
-  const fullPath = join(postsDirectory, __dirname, '__dirname', 'data.js');
-  console.log();
-
-  const fileContents = JSON.parse(fs.readFileSync('public/cache/data.js', 'utf8'));
-  console.log(fileContents);
 
   const options = {
     includeScore: true,
@@ -24,7 +18,7 @@ export default async (req, res) => {
     keys: ['content', 'tags', 'title']
   };
 
-  const fuse = new Fuse(fileContents, options);
+  const fuse = new Fuse(posts, options);
 
   const result = fuse.search(key).map(({ item }) => item);
 
