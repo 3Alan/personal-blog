@@ -1,15 +1,13 @@
-目前仅在实现功能，整体的UI设计及交互还在寻找灵感
+以下功能todoList只局限于功能，整体的UI设计及交互还在寻找灵感
 
 搭配vercel实现自动部署
 ## 功能
-- [ ] 搜索
+- [x] 搜索
 - [x] code 苹果窗口美化(增加行数https://github.com/slidevjs/slidev/pull/311/files)
 - [x] 代码高亮
-- [ ] 多窗口？
 - [x] 评论(waline)
 - [x] 回到顶部
 - [x] Toc组件(待完善)
-- [ ] 代码一键复制
 - [x] 最近评论
 - [x] 相关文章
 - [ ] 点赞功能？
@@ -17,6 +15,8 @@
 - [ ] 分页
 - [ ] 个人收藏网站模块
 - [ ] 个人网站
+- [ ] 代码一键复制
+- [ ] 多窗口？
 
 ### 文章包含信息
 - [x] 标题
@@ -36,6 +36,7 @@
 - [ ] 自动化测试？
 
 ## 一些点子✨
-- 搜索功能的一些思路 https://github.com/krisk/fuse
+- 搜索功能的解决方案
+  https://github.com/krisk/fuse
   https://medium.com/@matswainson/building-a-search-component-for-your-next-js-markdown-blog-9e75e0e7d210
 - https://github.com/vivek9patel/vivek9patel.github.io
