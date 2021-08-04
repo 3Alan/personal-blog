@@ -1,12 +1,12 @@
-import Container from '../components/Container';
-import PostList from '../components/PostList';
-import Layout from '../components/Layout';
+import Container from '../components/common/Container';
+import PostList from '../components/post/PostList';
+import Layout from '../components/common/Layout';
 import { getAllPosts } from '../utils/postTool';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import { FC } from 'react';
 import RecentComments from '../components/widgets/RecentComments';
-import Search from '../components/Search';
+import Search from '../components/common/Search';
 
 export interface IndexProps {
   allPosts: any[];

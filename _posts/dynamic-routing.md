@@ -1,7 +1,7 @@
 ---
 title: 'Dynamic Routing and Static Generation'
 coverImage: '/assets/blog/next.jpg'
-date: '2020-03-16T05:35:07.322Z'
+date: '2020-05-16T05:35:07.322Z'
 ogImage:
   url: '/assets/blog/next.jpg'
 tags:

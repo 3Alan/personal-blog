@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { FC } from 'react';
-import { CMS_NAME, HOME_OG_IMAGE_URL } from '../utils/constants';
+import { CMS_NAME, HOME_OG_IMAGE_URL } from '../../utils/constants';
 
 const Meta: FC = () => {
   return (

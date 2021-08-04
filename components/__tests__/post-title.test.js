@@ -1,4 +1,4 @@
-import PostTitle from '../PostTitle';
+import PostTitle from '../post/PostTitle';
 import { shallow } from 'enzyme';
 
 describe('post-title', () => {

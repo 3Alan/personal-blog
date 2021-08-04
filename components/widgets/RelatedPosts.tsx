@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import WidgetsContainer from './Container';
 import Link from 'next/link';
-import DateFormatter from '../DateFormatter';
+import DateFormatter from '../common/DateFormatter';
 
 export type PostItem = {
   comment: string;

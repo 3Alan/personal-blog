@@ -10,14 +10,18 @@
 - [x] Toc组件(待完善)
 - [x] 最近评论
 - [x] 相关文章
-- [ ] 点赞功能？
 - [ ] 文章分类
 - [ ] 分页
 - [ ] 个人收藏网站模块
 - [ ] 个人网站
-- [ ] 代码一键复制
-- [ ] 多窗口？
+- [ ] 评论通知
 
+
+## 可选功能/后期添加
+- [ ] 点赞功能
+- [ ] 多窗口
+- [ ] 代码一键复制
+  
 ### 文章包含信息
 - [x] 标题
 - [x] 简述
@@ -39,4 +43,5 @@
 - 搜索功能的解决方案
   https://github.com/krisk/fuse
   https://medium.com/@matswainson/building-a-search-component-for-your-next-js-markdown-blog-9e75e0e7d210
+  `Algolia`
 - https://github.com/vivek9patel/vivek9patel.github.io

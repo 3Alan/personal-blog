@@ -1,4 +1,4 @@
-import DateFormatter from './DateFormatter';
+import DateFormatter from '../common/DateFormatter';
 import Link from 'next/link';
 import { FC } from 'react';
 

@@ -38,7 +38,7 @@ function NavItem({ name, link = '/' }) {
 function NavList() {
   return (
     <div className="flex-1 flex items-center ml-2">
-      <NavItem name="分类" />
+      <NavItem name="分类" link="/categories" />
       <NavItem name="归档" />
       <NavItem name="友链" />
       <NavItem name="留言" />

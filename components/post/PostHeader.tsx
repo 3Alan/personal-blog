@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import PostTitle from '../PostTitle';
+import PostTitle from './PostTitle';
 
 export interface PostHeaderProps {
   title: string;

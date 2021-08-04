@@ -21,6 +21,10 @@ const Comment: FC = () => {
         dark: '.dark',
         // 放到环境变量中？
         serverURL: 'https://waline-server-lilac.vercel.app',
+        emoji: [
+          'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/weibo',
+          'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus'
+        ],
         visitor: true,
         requiredFields: ['nick'],
         avatarForce: true

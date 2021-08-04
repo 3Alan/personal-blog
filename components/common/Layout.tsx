@@ -1,6 +1,6 @@
 import Footer from './Footer';
 import Meta from './Meta';
-import Navigator from './navigator/index';
+import Navigator from '../navigator/index';
 import cn from 'classnames';
 import { FC } from 'react';
 
