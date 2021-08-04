@@ -1,3 +1,5 @@
+该项目的主要目的是为了学习
+
 以下功能todoList只局限于功能，整体的UI设计及交互还在寻找灵感
 
 搭配vercel实现自动部署
@@ -45,3 +47,4 @@
   https://medium.com/@matswainson/building-a-search-component-for-your-next-js-markdown-blog-9e75e0e7d210
   `Algolia`
 - https://github.com/vivek9patel/vivek9patel.github.io
+- 构建自己的组件库

@@ -35,9 +35,9 @@ const CoverImage: FC<CoverImageProps> = ({ title, src, slug, date }) => {
             <div className="text-sm font-serif italic sm:text-xl mr-4 sm:mr-10">
               <DateFormatter dateString={date} />
             </div>
-            <div id={pathName} className="leancloud_visitors text-sm inline-flex items-center" data-flag-title={title}>
+            <div className="text-sm inline-flex items-center" data-flag-title={title}>
               <FaEye />
-              <span className="leancloud-visitors-count ml-1"></span>
+              <span id={pathName} className="waline-visitor-count ml-1"></span>
             </div>
           </div>
 

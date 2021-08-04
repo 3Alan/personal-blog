@@ -15,6 +15,7 @@ import { FC } from 'react';
 import markdownToHtml from '../../utils/markdownToHtml';
 import RelatedPosts from '../../components/widgets/RelatedPosts';
 import { isEmptyArray } from '../../utils/verify';
+import Like from '../../components/post/Like';
 
 // TODO: 类型待完善
 export type PostProps = {
@@ -28,6 +29,7 @@ const Post: FC<PostProps> = ({ post, relatedPosts }) => {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
   return (
     <>
       <MenuBar />
@@ -41,6 +43,7 @@ const Post: FC<PostProps> = ({ post, relatedPosts }) => {
           title={post.title}
           date={post.date}
         />
+        <Like slug={post?.slug} />
         <Container>
           {router.isFallback ? (
             <PostTitle>Loading…</PostTitle>

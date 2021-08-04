@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import Fuse from 'fuse.js';
+import { NextApiRequest, NextApiResponse } from 'next';
 import { getAllPosts } from '../../utils/postTool';
 
 const posts =
@@ -7,8 +8,8 @@ const posts =
     ? require('../../cache/data').posts
     : getAllPosts(['title', 'content', 'slug', 'tags']);
 
-export default async (req, res) => {
-  const { key } = req.query;
+export default async (req: NextApiRequest, res: NextApiResponse) => {
+  const { q } = req.query;
 
   const options = {
     includeScore: true,
@@ -20,7 +21,7 @@ export default async (req, res) => {
 
   const fuse = new Fuse(posts, options);
 
-  const result = fuse.search(key).map(({ item }) => item);
+  const result = fuse.search(q as string).map(({ item }) => item);
 
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
