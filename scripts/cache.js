@@ -8,7 +8,6 @@ function getRealPath(path) {
 }
 
 const postsDirectory = getRealPath('_posts');
-console.log(postsDirectory, 'postsDirectory');
 
 function getPostSlugs() {
   return fs.readdirSync(postsDirectory);

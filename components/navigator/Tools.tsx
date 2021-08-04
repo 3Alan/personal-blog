@@ -1,7 +1,6 @@
 import { FC, useContext } from 'react';
-
-import { IconContext } from 'react-icons';
 import { FaMoon, FaSun, FaGithub } from 'react-icons/fa';
+import Icon from '../common/Icon';
 import { ThemeContext, UPDATE_THEME } from '../ThemeContextProvider';
 
 const Tools: FC = () => {
@@ -20,18 +19,17 @@ const Tools: FC = () => {
   return (
     <div className="flex items-center pr-5">
       <a className="text-gray-800 mr-1" href="https://github.com/3Alan" rel="noreferrer" target="_blank">
-        <IconContext.Provider value={{}}>
-          <div className="sm:text-lg cursor-pointer hover:bg-gray-100 p-2 rounded-full dark:text-gray-50 dark:hover:bg-gray-700">
-            <FaGithub />
-          </div>
-        </IconContext.Provider>
+        <div className="sm:text-lg cursor-pointer hover:bg-gray-100 p-2 rounded-full dark:text-gray-50 dark:hover:bg-gray-700">
+          <FaGithub />
+        </div>
       </a>
       <div onClick={toggleMode}>
-        <IconContext.Provider value={{ color: theme === 'light' ? '#FCD34D' : '#F59E0B' }}>
-          <div className="sm:text-lg cursor-pointer hover:bg-gray-100 p-2 rounded-full dark:hover:bg-gray-700">
-            {theme === 'light' ? <FaMoon /> : <FaSun />}
-          </div>
-        </IconContext.Provider>
+        <div className="sm:text-lg cursor-pointer hover:bg-gray-100 p-2 rounded-full dark:hover:bg-gray-700">
+          <Icon
+            customStyle={{ color: theme === 'light' ? '#FCD34D' : '#F59E0B' }}
+            component={theme === 'light' ? <FaMoon /> : <FaSun />}
+          />
+        </div>
       </div>
     </div>
   );
