@@ -3,7 +3,7 @@ import PostList from '../components/post/PostList';
 import Layout from '../components/common/Layout';
 import { getPostsByPage } from '../utils/postTool';
 import Head from 'next/head';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import { FC } from 'react';
 import RecentComments from '../components/widgets/RecentComments';
 import Search from '../components/common/Search';
@@ -32,7 +32,7 @@ const Home: FC<IndexProps> = ({ allPosts }) => {
 };
 
 // TODO: 分页
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   // const allPosts = getAllPosts(['title', 'date', 'slug', 'coverImage', 'excerpt', 'layout']);
   const allPosts = getPostsByPage(['title', 'date', 'slug', 'coverImage', 'excerpt', 'layout'], 1, 10);
 
