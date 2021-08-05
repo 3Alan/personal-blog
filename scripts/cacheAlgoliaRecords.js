@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-// 使用fuse.js搜索
 const fs = require('fs');
 const { join } = require('path');
 const matter = require('gray-matter');
@@ -48,15 +47,18 @@ function getAllPosts(fields = []) {
   return posts;
 }
 
-const data = `export const posts = ${JSON.stringify(getAllPosts(['title', 'content', 'slug', 'tags']))}`;
+const records = getAllPosts(['title', 'content', 'slug', 'tags']);
+
+const algoliasearch = require('algoliasearch');
 
 try {
-  fs.readdirSync(getRealPath('cache'));
-} catch (error) {
-  fs.mkdirSync(getRealPath('cache'));
-}
+  const client = algoliasearch('8E3TXLP4Q1', 'bf0d9b0e322aac503a19f294f407adf8');
+  const index = client.initIndex('posts');
 
-fs.writeFile(getRealPath('cache/data.js'), data, (err) => {
-  if (err) console.log(err);
-  console.log('posts cached');
-});
+  index
+    .replaceAllObjects(records, { autoGenerateObjectIDIfNotExist: true })
+    .then((res) => console.log(res))
+    .catch((e) => console.log(e));
+} catch (error) {
+  console.log(error);
+}

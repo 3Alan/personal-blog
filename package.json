@@ -5,7 +5,7 @@
     "dev": "next -p 3001",
     "build": "npm run cache-file && next build",
     "start": "next start",
-    "cache-file": "node scripts/cache.js",
+    "cache-file": "node scripts/cacheAlgoliaRecords.js",
     "export": "next export",
     "serve": "serve out",
     "test": "jest --watch",
@@ -15,6 +15,7 @@
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.19",
     "ahooks": "^2.9.3",
+    "algoliasearch": "^4.10.3",
     "autoprefixer": "^10.0.2",
     "classnames": "2.2.6",
     "dayjs": "^1.10.6",
@@ -30,6 +31,7 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-icons": "^4.2.0",
+    "react-instantsearch-dom": "^6.12.1",
     "sass": "^1.36.0",
     "serve": "11.3.2",
     "shiki": "^0.9.5"
