@@ -4,7 +4,6 @@ import { isEmptyArray } from '../../../utils/verify';
 
 const AV = require('leancloud-storage');
 
-// TODO: 去掉NEXT_PUBLIC 不暴露给浏览器
 const appId = process.env.LEANCLOUD_ID;
 const appKey = process.env.LEANCLOUD_KEY;
 
