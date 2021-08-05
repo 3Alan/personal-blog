@@ -1,7 +1,10 @@
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, SearchBox, Hits } from 'react-instantsearch-dom';
 
-const searchClient = algoliasearch('8E3TXLP4Q1', 'd3c37451a177fc93f67738eebd49816d');
+const appId = process.env.ALGOLIA_ID;
+const clientKey = process.env.NEXT_PUBLIC_ALGOLIA_CLIENT_KEY;
+
+const searchClient = algoliasearch(appId, clientKey);
 
 // TODO: 节流
 const AlgoliaSearch = () => (

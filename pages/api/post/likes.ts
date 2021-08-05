@@ -5,8 +5,8 @@ import { isEmptyArray } from '../../../utils/verify';
 const AV = require('leancloud-storage');
 
 // TODO: 去掉NEXT_PUBLIC 不暴露给浏览器
-const appId = process.env.NEXT_PUBLIC_LEANCLOUD_ID;
-const appKey = process.env.NEXT_PUBLIC_LEANCLOUD_KEY;
+const appId = process.env.LEANCLOUD_ID;
+const appKey = process.env.LEANCLOUD_KEY;
 
 AV.init({
   appId,
@@ -56,7 +56,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'PATCH') {
     const { slug } = JSON.parse(req.body);
     const result = await queryLikeByKey('slug', slug);
-    console.log(result.id);
 
     const {
       attributes: { num },

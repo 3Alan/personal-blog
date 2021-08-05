@@ -3,6 +3,9 @@ const fs = require('fs');
 const { join } = require('path');
 const matter = require('gray-matter');
 
+const appId = process.env.NEXT_PUBLIC_ALGOLIA_ID;
+const serverKey = process.env.ALGOLIA_SERVER_KEY;
+
 function getRealPath(path) {
   return join(process.cwd(), path);
 }
@@ -51,14 +54,10 @@ const records = getAllPosts(['title', 'content', 'slug', 'tags']);
 
 const algoliasearch = require('algoliasearch');
 
-try {
-  const client = algoliasearch('8E3TXLP4Q1', 'bf0d9b0e322aac503a19f294f407adf8');
-  const index = client.initIndex('posts');
+const client = algoliasearch(appId, serverKey);
+const index = client.initIndex('posts');
 
-  index
-    .replaceAllObjects(records, { autoGenerateObjectIDIfNotExist: true })
-    .then((res) => console.log(res))
-    .catch((e) => console.log(e));
-} catch (error) {
-  console.log(error);
-}
+index
+  .replaceAllObjects(records, { autoGenerateObjectIDIfNotExist: true })
+  .then((res) => console.log(res))
+  .catch((e) => console.log(e));
