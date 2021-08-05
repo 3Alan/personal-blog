@@ -20,7 +20,7 @@
 
 
 ## 可选功能/后期添加
-- [ ] 点赞功能
+- [x] 点赞功能
 - [ ] 多窗口
 - [ ] 代码一键复制
   
@@ -48,3 +48,7 @@
   `Algolia`
 - https://github.com/vivek9patel/vivek9patel.github.io
 - 构建自己的组件库
+
+## 技术栈探索
+- mongodb
+- graphql

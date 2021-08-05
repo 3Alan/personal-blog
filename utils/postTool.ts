@@ -43,6 +43,12 @@ export function getAllPosts(fields = []): any[] {
   return posts;
 }
 
+export function getPostsByPage(field, page, count) {
+  const posts = getAllPosts(field);
+  const currentPosts = posts.slice((page - 1) * count, (page - 1) * count + count);
+  return currentPosts;
+}
+
 export function unique(arr: any[]): any[] {
   const res = new Map();
   return arr.filter((a) => !res.has(a.id) && res.set(a.id, 1));
