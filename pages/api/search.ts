@@ -3,10 +3,12 @@ import Fuse from 'fuse.js';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getAllPosts } from '../../utils/postTool';
 
-const posts =
-  process.env.NODE_ENV === 'production'
-    ? require('../../cache/data').posts
-    : getAllPosts(['title', 'content', 'slug', 'tags']);
+// const posts =
+//   process.env.NODE_ENV === 'production'
+//     ? require('../../cache/data').posts
+//     : getAllPosts(['title', 'content', 'slug', 'tags']);
+
+const posts = getAllPosts(['title', 'content', 'slug', 'tags']);
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { q } = req.query;
