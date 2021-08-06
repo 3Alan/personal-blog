@@ -24,13 +24,14 @@ const CoverImage: FC<CoverImageProps> = ({ title, src, slug, date }) => {
         'hover:shadow-medium transition-shadow duration-200': slug,
         'shadow-small': slug
       })}
+      style={{ height: 450 }}
     />
   );
   return (
     <div className="relative sm:mx-0">
-      <div className="bg-black bg-opacity-60 w-full h-72 sm:h-96 absolute px-6">
+      <div className="bg-black bg-opacity-60 w-full h-72 sm:h-96 absolute px-6" style={{ height: 450 }}>
         <div className="lg:max-w-screen-lg h-full mx-auto text-white flex flex-col justify-center">
-          <div className="py-3 whitespace-nowrap truncate mb-2 text-2xl font-medium sm:text-6xl sm:mb-6">{title}</div>
+          <div className="py-3 whitespace-nowrap truncate mb-2 text-2xl font-medium sm:text-5xl sm:mb-6">{title}</div>
           <div className="inline-flex items-center mb-1 sm:mb-4">
             <div className="text-sm font-serif italic sm:text-xl mr-4 sm:mr-10">
               <DateFormatter dateString={date} />

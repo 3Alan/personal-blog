@@ -14,7 +14,6 @@ function HomeIcon() {
       <a>
         <div className="flex items-center pl-5">
           <Icon customStyle={{ color: '#fbb01f', className: 'text-xl' }} component={<FaBasketballBall />} />
-          <span className="ml-3 text-xl text-gray-500 dark:text-gray-300">Alan</span>
         </div>
       </a>
     </Link>
