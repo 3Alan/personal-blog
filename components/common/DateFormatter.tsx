@@ -10,7 +10,7 @@ const DateFormatter: FC<DateFormatterProps> = ({ dateString, className }) => {
   const date = dayjs(dateString);
   return (
     <time dateTime={dateString} className={className}>
-      {dayjs(date).format('YYYY-MM-DD')}
+      {dayjs(date).format('MMM D, YYYY')}
     </time>
   );
 };

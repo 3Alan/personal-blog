@@ -32,7 +32,6 @@ const Post: FC<PostProps> = ({ post, relatedPosts }) => {
 
   return (
     <>
-      <MenuBar />
       <Head>
         <title>Alan Blog | {post.title}</title>
         <meta property="og:image" content={post.ogImage.url} />
@@ -48,12 +47,10 @@ const Post: FC<PostProps> = ({ post, relatedPosts }) => {
           {router.isFallback ? (
             <PostTitle>Loading…</PostTitle>
           ) : (
-            <div className="flex flex-row">
-              <div className="w-full lg:max-w-screen-md mr-4">
-                <article
-                  style={{ width: 768 }}
-                  className="py-2 px-4 mt-2 mr-2 my-6 rounded-xl dark:bg-dark-content bg-gray-50"
-                >
+            <div className="flex justify-center">
+              <MenuBar className="sticky top-20" />
+              <div className="lg:max-w-screen-md">
+                <article className="px-4 mt-2 mr-2 my-6 dark:bg-dark-content">
                   <PostBody content={post.content} />
                 </article>
 
@@ -62,8 +59,8 @@ const Post: FC<PostProps> = ({ post, relatedPosts }) => {
                 <div className="py-8 px-4 my-2 mr-2 shadow-card rounded-xl dark:bg-dark-content bg-white">
                   <Comment />
                 </div>
+                <Toc content={post.toc} />
               </div>
-              <Toc content={post.toc} />
             </div>
           )}
         </Container>

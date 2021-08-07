@@ -1,6 +1,7 @@
 import DateFormatter from '../common/DateFormatter';
 import Link from 'next/link';
 import { FC } from 'react';
+import Card from './Card';
 
 export interface PostPreviewProps {
   layout?: string;
@@ -11,29 +12,17 @@ export interface PostPreviewProps {
   slug: string;
 }
 
-function Card({ children }) {
-  return (
-    <div className="bg-white shadow-card mb-5 rounded md:rounded-xl overflow-hidden mx-1 md:mb-10 sm:mx-2">
-      {children}
-    </div>
-  );
-}
-
 const HeadImgLayout: FC<PostPreviewProps> = (props) => {
-  const { title, coverImage, date, slug, excerpt } = props;
+  const { title, coverImage, date, slug } = props;
 
   return (
     <Card>
       <div className="md:flex p-4">
-        <div className="hidden md:flex md:flex-shrink-0 rounded overflow-hidden">
-          <img className="h-40 w-40 object-cover" src={coverImage} />
-        </div>
-        <div className="md:pl-6 md:py-2 flex flex-col justify-between">
+        <div className="md:py-1 md:flex-1 md:pr-8 flex flex-col justify-between">
           <div className="mb-4">
             <Link as={`/posts/${slug}`} href="/posts/[slug]">
-              <a className="block text-base leading-tight font-bold text-gray-700 hover:underline">{title}</a>
+              <a className="block text-base leading-relaxed font-semibold text-gray-700 dark:text-gray-100">{title}</a>
             </Link>
-            <p className="text-sm mt-2 text-gray-500 break-words">{excerpt}</p>
           </div>
           <div className="flex justify-between text-xs text-gray-400">
             <div>
@@ -41,6 +30,9 @@ const HeadImgLayout: FC<PostPreviewProps> = (props) => {
             </div>
             <div>1542 reviews</div>
           </div>
+        </div>
+        <div className="hidden md:flex md:flex-shrink-0 rounded-2xl overflow-hidden">
+          <img className="h-40 w-40 object-cover" src={coverImage} />
         </div>
       </div>
     </Card>

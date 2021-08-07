@@ -3,18 +3,17 @@ import PostList from '../components/post/PostList';
 import Layout from '../components/common/Layout';
 import { getPostsByPage } from '../utils/postTool';
 import Head from 'next/head';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { FC } from 'react';
 import RecentComments from '../components/widgets/RecentComments';
 import AlgoliaSearch from '../components/common/search/AlgoliaSearch';
 
 export interface IndexProps {
-  allPosts: any[];
+  // 类型待完善
+  postList: any[];
 }
 
-const Home: FC<IndexProps> = ({ allPosts }) => {
-  const morePosts = allPosts;
-
+const Home: FC<IndexProps> = ({ postList }) => {
   return (
     <Layout>
       <Head>
@@ -23,7 +22,7 @@ const Home: FC<IndexProps> = ({ allPosts }) => {
       <Container className="pt-8">
         <AlgoliaSearch />
         <div className="flex items-start">
-          {morePosts.length > 0 && <PostList posts={morePosts} className="md:mr-4" />}
+          {postList.length > 0 && <PostList posts={postList} className="md:mr-4" />}
           <RecentComments className="hidden md:flex flex-1" />
         </div>
       </Container>
@@ -31,13 +30,11 @@ const Home: FC<IndexProps> = ({ allPosts }) => {
   );
 };
 
-// TODO: 分页
-export const getStaticProps: GetStaticProps = async () => {
-  // const allPosts = getAllPosts(['title', 'date', 'slug', 'coverImage', 'excerpt', 'layout']);
-  const allPosts = getPostsByPage(['title', 'date', 'slug', 'coverImage', 'excerpt', 'layout'], 1, 10);
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const postList = getPostsByPage(['title', 'date', 'slug', 'coverImage'], query.p || 1, 10);
 
   return {
-    props: { allPosts }
+    props: { postList }
   };
 };
 

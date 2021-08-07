@@ -8,7 +8,7 @@ interface ContainerProps {
 const Container: FC<ContainerProps> = (props) => {
   const { className, children, width = 'max-w-screen-lg' } = props;
   return (
-    <div className={`w-full pb-10 dark:bg-dark-bg transition-colors bg-gray-50 ${className}`}>
+    <div className={`w-full pb-10 dark:bg-dark-bg transition-colors ${className}`}>
       <div className={`container mx-auto ${width}`}>{children}</div>
     </div>
   );

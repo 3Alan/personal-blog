@@ -9,9 +9,14 @@ module.exports = {
         'accent-7': '#333',
         success: '#0070f3',
         cyan: '#79FFE1',
-        'dark-bg': '#0e0e11',
-        'dark-content': '#1b1d21'
+        'dark-bg': '#111827',
+        'dark-content': '#151d2c',
+        'dark-hover-content': '#1f2937',
+        'dark-border': '#374151',
+        'card-hover': '#f9fafb'
       },
+      cursor: ['hover'],
+      scale: ['hover'],
       spacing: {
         28: '7rem'
       },
@@ -30,7 +35,7 @@ module.exports = {
       boxShadow: {
         sm: '0 3px 5px 1px rgba(0,32,128,0.07)',
         navigator: '0 4px 10px rgba(0,0,0,0.05)',
-        card: '0px 2px 6px 0px rgba(199, 201, 206, 0.29)'
+        card: '0 0 transparent, 0 0 transparent, 0 20px 25px -5px rgba(0,0,0,0.1),0 10px 10px -5px rgba(0,0,0,0.04)'
       }
     }
   }
