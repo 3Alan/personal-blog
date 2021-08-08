@@ -41,6 +41,7 @@ module.exports = {
     'jsx-a11y/img-redundant-alt': 0,
     'jsx-a11y/anchor-is-valid': 0,
     'dot-notation': 0,
+    '@typescript-eslint/no-var-requires': 0,
     'no-plusplus': 0,
     '@typescript-eslint/explicit-module-boundary-types': 0,
     'react/no-danger': 0,
