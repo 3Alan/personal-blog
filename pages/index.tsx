@@ -30,6 +30,7 @@ const Home: FC<IndexProps> = ({ postList }) => {
   );
 };
 
+// 500问题所在，getServerSideProps在服务端运行，所以getPostsByPage获取的posts路径错误
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const postList = getPostsByPage(['title', 'date', 'slug', 'coverImage'], query.p || 1, 10);
 
