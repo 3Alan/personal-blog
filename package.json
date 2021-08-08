@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next -p 3001",
-    "build": "next build && npm run cache-file",
+    "build": "next build",
     "start": "next start",
     "cache-file": "node scripts/cacheAlgoliaRecords.js",
     "export": "next export",

@@ -6,8 +6,8 @@ import { isEmptyArray } from '../../../utils/verify';
 const AV = require('leancloud-storage');
 
 AV.init({
-  leanCloudAppId,
-  leanCloudAppKey
+  appId: leanCloudAppId,
+  appKey: leanCloudAppKey
 });
 
 async function initLikeClassItem(slug) {
