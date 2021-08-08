@@ -6,3 +6,12 @@ export const HOME_OG_IMAGE_URL =
 export const FULL_PAGE_LIST = ['/posts/[slug]'];
 
 export const CSR = process.browser;
+
+// AlgoliaSearch secret
+export const algoliaAppId = process.env.NEXT_PUBLIC_ALGOLIA_ID;
+export const algoliaClientKey = process.env.NEXT_PUBLIC_ALGOLIA_CLIENT_KEY;
+export const algoliaServerKey = process.env.ALGOLIA_SERVER_KEY;
+
+// LeanCloud secret
+export const leanCloudAppId = process.env.LEANCLOUD_ID;
+export const leanCloudAppKey = process.env.LEANCLOUD_KEY;

@@ -1,15 +1,13 @@
+import { leanCloudAppId, leanCloudAppKey } from '../../../utils/constants';
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { NextApiRequest, NextApiResponse } from 'next';
 import { isEmptyArray } from '../../../utils/verify';
 
 const AV = require('leancloud-storage');
 
-const appId = process.env.LEANCLOUD_ID;
-const appKey = process.env.LEANCLOUD_KEY;
-
 AV.init({
-  appId,
-  appKey
+  leanCloudAppId,
+  leanCloudAppKey
 });
 
 async function initLikeClassItem(slug) {
