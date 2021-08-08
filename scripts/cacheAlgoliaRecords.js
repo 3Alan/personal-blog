@@ -6,8 +6,6 @@ const matter = require('gray-matter');
 const appId = process.env.NEXT_PUBLIC_ALGOLIA_ID;
 const serverKey = process.env.ALGOLIA_SERVER_KEY;
 
-console.log(process.env.NEXT_PUBLIC_ALGOLIA_ID, process.env, 'algolia----------');
-
 function getRealPath(path) {
   return join(process.cwd(), path);
 }

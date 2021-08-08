@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next -p 3001",
-    "build": "next build",
+    "build": "next build && npm run cache-file",
     "start": "next start",
     "cache-file": "node scripts/cacheAlgoliaRecords.js",
     "export": "next export",
@@ -68,7 +68,7 @@
     "stylelint": "^13.9.0",
     "stylelint-config-standard": "^20.0.0",
     "tailwindcss": "^2.0.3",
-    "typescript": "^4.2.4"
+    "typescript": "^4.3.2"
   },
   "license": "MIT"
 }
