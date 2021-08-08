@@ -3,7 +3,7 @@ import PostList from '../components/post/PostList';
 import Layout from '../components/common/Layout';
 import { getPostsByPage } from '../utils/postTool';
 import Head from 'next/head';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import { FC } from 'react';
 import RecentComments from '../components/widgets/RecentComments';
 import AlgoliaSearch from '../components/common/search/AlgoliaSearch';
@@ -31,8 +31,9 @@ const Home: FC<IndexProps> = ({ postList }) => {
 };
 
 // 500问题所在，getServerSideProps在服务端运行，所以getPostsByPage获取的posts路径错误
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const postList = getPostsByPage(['title', 'date', 'slug', 'coverImage'], query.p || 1, 10);
+// 解决思路：打包时将_posts目录复制到打包后的文件中，目前暂无具体实现思路
+export const getStaticProps: GetStaticProps = async () => {
+  const postList = getPostsByPage(['title', 'date', 'slug', 'coverImage'], 1, 10);
 
   return {
     props: { postList }
