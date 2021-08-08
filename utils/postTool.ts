@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { isArray } from './verify';
 
 const postsDirectory = join(process.cwd(), '_posts');
+console.log(postsDirectory, process.cwd(), 'postsDirectory------------');
 
 export function getPostSlugs(): string[] {
   return fs.readdirSync(postsDirectory);
@@ -36,6 +37,8 @@ export function getPostBySlug(slug: string, fields = []): any {
 
 export function getAllPosts(fields = []): any[] {
   const slugs = getPostSlugs();
+  console.log(slugs, 'slugs------');
+
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
     // sort posts by date in descending order
