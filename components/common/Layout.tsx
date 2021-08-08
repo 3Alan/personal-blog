@@ -1,6 +1,5 @@
 import Footer from './Footer';
 import Meta from './Meta';
-import Navigator from '../navigator/index';
 import cn from 'classnames';
 import { FC } from 'react';
 
@@ -14,7 +13,6 @@ const Layout: FC<LayoutProps> = (props) => {
   return (
     <>
       <Meta />
-      <Navigator />
       <div
         className={cn('min-h-screen', {
           'pt-16': hasNav

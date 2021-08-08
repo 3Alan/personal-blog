@@ -18,7 +18,7 @@ export interface RelatedPostsProps {
 const CommentItem = ({ item }) => {
   const { title, date, excerpt, slug } = item;
   return (
-    <WidgetsContainer id="recent-comments" className="w-60 h-36">
+    <WidgetsContainer id="recent-comments" className="w-60 h-36 flex-1">
       <div className="flex flex-col p-2">
         <div className="truncate">
           <Link as={`/posts/${slug}`} href="/posts/[slug]">
@@ -36,12 +36,14 @@ const CommentItem = ({ item }) => {
 const RelatedPosts: FC<RelatedPostsProps> = (props) => {
   const { list } = props;
   return (
-    <div>
-      相关文章
-      {list.map((item, index) => (
-        <CommentItem item={item} key={index} />
-      ))}
-    </div>
+    <>
+      <span className="font-medium text-xl">Related Posts</span>
+      <div className="flex pt-2">
+        {list.map((item, index) => (
+          <CommentItem item={item} key={index} />
+        ))}
+      </div>
+    </>
   );
 };
 

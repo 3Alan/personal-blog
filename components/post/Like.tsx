@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import useSWR from 'swr';
-import { FaHeart } from 'react-icons/fa';
+import { FaRegHeart } from 'react-icons/fa';
 import Icon from '../common/Icon';
 import fetcher from '../../utils/fetch';
 
@@ -23,9 +23,12 @@ const Like: FC<{ slug: string }> = ({ slug }) => {
   };
 
   return (
-    <div onClick={onLikeClick} className="cursor-pointer flex">
-      <Icon component={<FaHeart />} customStyle={{ color: 'red' }} />
-      {data ? data.num : 'loading...'}
+    <div
+      onClick={onLikeClick}
+      className="cursor-pointer flex items-center bg-red-100 py-1 px-4 rounded-full hover:bg-red-200"
+    >
+      <Icon component={<FaRegHeart />} customStyle={{ color: '#EF4444', className: 'text-xs' }} />
+      <span className="pl-2 text-red-400">{data ? data.num : '...'}</span>
     </div>
   );
 };

@@ -8,6 +8,7 @@ export interface IconProps {
 }
 
 const Icon: FC<IconProps> = (props) => {
+  // TODO: 传入的customStyle服务端/客户端表现不一致
   const { customStyle, component } = props;
   if (customStyle) {
     return (

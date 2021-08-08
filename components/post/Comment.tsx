@@ -1,19 +1,8 @@
 import { useEffect, FC } from 'react';
-import AV from 'leancloud-storage';
 
 const Comment: FC = () => {
   useEffect(() => {
     (async () => {
-      // AV.init({
-      //     appId,
-      //     appKey
-      // });
-      // const query = new AV.Query('Counter');
-      // // https://leancloud.cn/docs/leanstorage_guide-js.html#hash1025913543
-      // query.get('5fa8feb8cb5eb5529f9e864c').then((counter) => {
-      //     const times = counter.get('times');
-      //     console.log(times);
-      // });
       // eslint-disable-next-line global-require
       const Waline = (await import('@waline/client')).default;
       Waline({

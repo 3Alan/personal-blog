@@ -4,7 +4,6 @@ import matter from 'gray-matter';
 import { isArray } from './verify';
 
 const postsDirectory = join(process.cwd(), '_posts');
-console.log(process.cwd(), __dirname, 'path--------');
 
 export function getPostSlugs(): string[] {
   return fs.readdirSync(postsDirectory);
@@ -75,5 +74,5 @@ export function getRelatedPosts(tags: any[], slug: string, num = 3): any[] {
     });
     relatedPosts = relatedPosts.concat(related);
   }
-  return unique(relatedPosts);
+  return unique(relatedPosts).slice(0, 2);
 }

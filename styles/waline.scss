@@ -4,6 +4,8 @@
 
   @apply dark:text-gray-300;
 
+  margin-top: 20px;
+
   a {
     @apply text-blue-400;
   }
@@ -12,5 +14,9 @@
     background: #142939;
 
     @apply rounded-md;
+  }
+
+  .vpanel {
+    margin: 0;
   }
 }

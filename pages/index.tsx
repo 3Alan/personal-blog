@@ -7,6 +7,7 @@ import { GetStaticProps } from 'next';
 import { FC } from 'react';
 import RecentComments from '../components/widgets/RecentComments';
 import AlgoliaSearch from '../components/common/search/AlgoliaSearch';
+import CommonNavigator from '../components/navigator/Common';
 
 export interface IndexProps {
   // 类型待完善
@@ -19,6 +20,7 @@ const Home: FC<IndexProps> = ({ postList }) => {
       <Head>
         <title>Alan | 前端博客</title>
       </Head>
+      <CommonNavigator />
       <Container className="pt-8">
         <AlgoliaSearch />
         <div className="flex items-start">
