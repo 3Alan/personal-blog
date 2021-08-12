@@ -24,8 +24,8 @@ const Home: FC<IndexProps> = ({ postList }) => {
       <Container className="pt-8">
         <AlgoliaSearch />
         <div className="flex items-start">
-          {postList.length > 0 && <PostList posts={postList} className="md:mr-4" />}
-          <RecentComments className="hidden md:flex flex-1" />
+          {postList.length > 0 && <PostList posts={postList} className="md:mr-4 flex-1" />}
+          <RecentComments className="hidden md:flex md:w-80" />
         </div>
       </Container>
     </Layout>

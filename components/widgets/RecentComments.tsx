@@ -57,7 +57,7 @@ const RecentComments: FC<RecentCommentsProps> = ({ className }) => {
   }, []);
 
   return (
-    <WidgetsContainer id="recent-comments" className={cn(className, 'w-40')} title="最近评论">
+    <WidgetsContainer id="recent-comments" className={className} title="最近评论">
       {list.map((item, index) => (
         <CommentItem item={item} key={index} />
       ))}

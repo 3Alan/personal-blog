@@ -8,7 +8,7 @@ export interface PostListProps {
 
 const PostList: FC<PostListProps> = ({ posts, className }) => {
   return (
-    <div style={{ width: 680 }} className={className}>
+    <div className={className}>
       {posts.map((post) => (
         <PostPreview
           key={post.slug}
