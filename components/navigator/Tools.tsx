@@ -1,9 +1,13 @@
 import { FC, useContext } from 'react';
-import { FaMoon, FaSun, FaGithub } from 'react-icons/fa';
+import { FaMoon, FaSun, FaGithub, FaSistrix } from 'react-icons/fa';
 import Icon from '../common/Icon';
 import { ThemeContext, UPDATE_THEME } from '../ThemeContextProvider';
 
-const Tools: FC = () => {
+export type ToolsProps = {
+  toggleShowSearch: any;
+};
+
+const Tools: FC<ToolsProps> = ({ toggleShowSearch }) => {
   const { theme, dispatch } = useContext(ThemeContext);
 
   const toggleMode = () => {
@@ -23,13 +27,20 @@ const Tools: FC = () => {
           <FaGithub />
         </div>
       </a>
-      <div onClick={toggleMode}>
-        <div className="sm:text-lg cursor-pointer hover:bg-gray-100 p-2 rounded-full dark:hover:bg-gray-700">
-          <Icon
-            customStyle={{ color: theme === 'light' ? '#FCD34D' : '#F59E0B' }}
-            component={theme === 'light' ? <FaMoon /> : <FaSun />}
-          />
-        </div>
+      <div
+        onClick={toggleMode}
+        className="sm:text-lg cursor-pointer hover:bg-gray-100 p-2 rounded-full dark:hover:bg-gray-700"
+      >
+        <Icon
+          customStyle={{ color: theme === 'light' ? '#FCD34D' : '#F59E0B' }}
+          component={theme === 'light' ? <FaMoon /> : <FaSun />}
+        />
+      </div>
+      <div
+        onClick={toggleShowSearch}
+        className="sm:text-lg cursor-pointer hover:bg-gray-100 p-2 rounded-full dark:hover:bg-gray-700"
+      >
+        <Icon customStyle={{ color: '#3B82F6' }} component={<FaSistrix />} />
       </div>
     </div>
   );

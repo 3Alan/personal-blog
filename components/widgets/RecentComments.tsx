@@ -43,6 +43,7 @@ const CommentItem: FC<CommentItemProps> = ({ item }) => {
   );
 };
 
+// TODO: Skelton
 const RecentComments: FC<RecentCommentsProps> = ({ className }) => {
   const [list, setList] = useState([]);
   useEffect(() => {

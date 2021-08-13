@@ -23,7 +23,7 @@ const NavigatorWrapper: FC = ({ children }) => {
     <div
       className={cn(
         // bg-opacity-90 backdrop-filter backdrop-saturate-200 backdrop-blur-lg
-        `shadow-navigator px-2 fixed transition-all bg-white hidden h-16 inset-0 z-50 dark:bg-dark-content dark:border-dark-border`,
+        `shadow-navigator px-2 fixed transition-all bg-white hidden h-16 inset-0 z-40 dark:bg-dark-content dark:border-dark-border`,
         {
           // 'shadow-navigator': !isFullPage || (scroll && scroll.top > 200),
           'sm:flex': !isFullPage || (scroll && scroll.top > 200)

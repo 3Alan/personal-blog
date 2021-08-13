@@ -5,6 +5,10 @@ import Icon from '../common/Icon';
 import NavigatorWrapper from './Wrapper';
 import { FC } from 'react';
 
+export type CommonNavigatorProps = {
+  toggleShowSearch: any;
+};
+
 function HomeIcon() {
   return (
     <Link href="/">
@@ -39,12 +43,12 @@ function NavList() {
   );
 }
 
-const CommonNavigator: FC = () => {
+const CommonNavigator: FC<CommonNavigatorProps> = ({ toggleShowSearch }) => {
   return (
     <NavigatorWrapper>
       <HomeIcon />
       <NavList />
-      <Tools />
+      <Tools toggleShowSearch={toggleShowSearch} />
     </NavigatorWrapper>
   );
 };

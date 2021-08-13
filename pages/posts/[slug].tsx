@@ -46,7 +46,7 @@ const Post: FC<PostProps> = ({ post, relatedPosts }) => {
           {router.isFallback ? (
             <PostTitle>Loading…</PostTitle>
           ) : (
-            <div className="lg:max-w-screen-md mx-auto">
+            <div className="lg:max-w-screen-md mx-auto px-3">
               <article className="mt-2 mr-2 my-6 dark:bg-dark-content">
                 <PostBody content={post.content} />
               </article>

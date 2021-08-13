@@ -8,6 +8,7 @@ import { FC } from 'react';
 import RecentComments from '../components/widgets/RecentComments';
 import AlgoliaSearch from '../components/common/search/AlgoliaSearch';
 import CommonNavigator from '../components/navigator/Common';
+import useToggle from '../hooks/useToggle';
 
 export interface IndexProps {
   // 类型待完善
@@ -15,17 +16,18 @@ export interface IndexProps {
 }
 
 const Home: FC<IndexProps> = ({ postList }) => {
+  const [showSearch, toggleShowSearch] = useToggle();
   return (
     <Layout>
       <Head>
         <title>Alan | 前端博客</title>
       </Head>
-      <CommonNavigator />
+      <AlgoliaSearch show={showSearch} toggleShow={toggleShowSearch} />
+      <CommonNavigator toggleShowSearch={toggleShowSearch} />
       <Container className="pt-8">
-        <AlgoliaSearch />
         <div className="flex items-start">
           {postList.length > 0 && <PostList posts={postList} className="md:mr-4 flex-1" />}
-          <RecentComments className="hidden md:flex md:w-80" />
+          <RecentComments className="hidden md:flex md:flex-col md:w-80" />
         </div>
       </Container>
     </Layout>
