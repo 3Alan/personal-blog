@@ -1,7 +1,8 @@
 import algoliasearch from 'algoliasearch/lite';
+import Link from 'next/link';
 import { FC } from 'react';
 
-import { InstantSearch, SearchBox, Hits } from 'react-instantsearch-dom';
+import { InstantSearch, SearchBox, Hits, Highlight, Snippet, Configure, PoweredBy } from 'react-instantsearch-dom';
 import { algoliaAppId, algoliaClientKey } from '../../../utils/constants';
 import Mask from '../Mask';
 
@@ -13,22 +14,39 @@ export type AlgoliaSearchProps = {
 };
 
 const HitComponent = ({ hit }) => {
-  return <span>{hit.title}</span>;
+  return (
+    <div className="flex flex-col">
+      <div className="text-lg ellipsis-2">
+        <Link as={`/posts/${hit.slug}`} href="/posts/[slug]">
+          <a>
+            <Highlight attribute="title" hit={hit} />
+          </a>
+        </Link>
+      </div>
+
+      <div className="text-gray-400 text-sm ellipsis-4">
+        <Snippet hit={hit} attribute="content" />
+      </div>
+    </div>
+  );
 };
 
-// TODO: 节流搜索
+// TODO: 节流搜索、搜索粒度调整
 const AlgoliaSearch: FC<AlgoliaSearchProps> = ({ show, toggleShow }) => {
   return (
     <>
-      <Mask show={show} className="bg-opacity-40 backdrop-filter backdrop-blur-lg">
-        <div className="w-96">
-          <InstantSearch indexName="posts" searchClient={searchClient}>
-            <SearchBox />
-            <Hits hitComponent={HitComponent} />
-          </InstantSearch>
-          <button onClick={toggleShow}>close</button>
-        </div>
-      </Mask>
+      {show && (
+        <Mask show={show} toggleShow={toggleShow} className="bg-opacity-40 backdrop-filter backdrop-blur-lg">
+          <div className="w-96">
+            <InstantSearch indexName="posts" searchClient={searchClient}>
+              <Configure attributesToSnippet={['content:100']} />
+              <SearchBox />
+              <Hits hitComponent={HitComponent} />
+              <PoweredBy />
+            </InstantSearch>
+          </div>
+        </Mask>
+      )}
     </>
   );
 };
