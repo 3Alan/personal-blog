@@ -24,6 +24,11 @@ const Mask: FC<MaskProps> = (props) => {
       document.body.style.removeProperty('height');
       document.body.style.removeProperty('overflow');
     }
+
+    return () => {
+      document.body.style.removeProperty('height');
+      document.body.style.removeProperty('overflow');
+    };
   }, [show]);
 
   return (
