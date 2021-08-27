@@ -1,5 +1,7 @@
 import ReactFullpage from '@fullpage/react-fullpage';
 import { FC } from 'react';
+import { Button } from '@3alan/ui';
+import '@3alan/ui/dist/index.css';
 
 const Resume: FC = () => {
   return (
@@ -10,6 +12,7 @@ const Resume: FC = () => {
         return (
           <ReactFullpage.Wrapper>
             <div className="section bg-red-400">
+              <Button>123</Button>
               <p>Section 1 (welcome to fullpage.js)</p>
               <button onClick={() => fullpageApi.moveSectionDown()}>Click me to move down</button>
             </div>
