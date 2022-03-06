@@ -4,7 +4,7 @@
 
 搭配vercel实现自动部署
 ## 功能
-- [ ] MDX
+- [ ] MDX https://github.com/reactjs/reactjs.org/tree/main/beta
 - [x] 搜索
 - [x] code 苹果窗口美化(增加行数https://github.com/slidevjs/slidev/pull/311/files)
 - [x] 代码高亮
