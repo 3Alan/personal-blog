@@ -15,6 +15,8 @@ import markdownToHtml from '../../utils/markdownToHtml';
 import RelatedPosts from '../../components/widgets/RelatedPosts';
 import { isEmptyArray } from '../../utils/verify';
 import PostNavigator from '../../components/navigator/Post';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote } from 'next-mdx-remote';
 
 // TODO: 类型待完善
 export type PostProps = {
@@ -33,7 +35,6 @@ const Post: FC<PostProps> = ({ post, relatedPosts }) => {
     <>
       <Head>
         <title>Alan Blog | {post.title}</title>
-        <meta property="og:image" content={post.ogImage.url} />
       </Head>
       <PostNavigator post={post} />
       <Layout hasNav={false} id="post">
@@ -48,13 +49,15 @@ const Post: FC<PostProps> = ({ post, relatedPosts }) => {
           ) : (
             <div className="lg:max-w-screen-md mx-auto px-3">
               <article className="mt-2 mr-2 my-6 dark:bg-dark-content">
-                <PostBody content={post.content} />
+                <PostBody>
+                  <MDXRemote {...post.content} />
+                </PostBody>
               </article>
 
               {!isEmptyArray(relatedPosts) && <RelatedPosts list={relatedPosts} />}
 
               <Comment />
-              <Toc content={post.toc} />
+              {/* <Toc content={post.toc} /> */}
             </div>
           )}
         </Container>
@@ -77,14 +80,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const relatedPosts = getRelatedPosts(post.tags, post.slug);
 
-  const { content, toc } = await markdownToHtml(post.content || '');
+  // const { toc, content } = await markdownToHtml(post.content || '');
+  const mdxSource = await serialize(post.content, { parseFrontmatter: true });
 
   return {
     props: {
       post: {
         ...post,
-        content,
-        toc
+        content: mdxSource
+        // toc
       },
       relatedPosts
     }
