@@ -1,7 +1,6 @@
 import dayjs from 'dayjs';
 import { useState, useEffect, FC } from 'react';
 import WidgetsContainer from './Container';
-import cn from 'classnames';
 import Link from 'next/link';
 
 export interface RecentCommentsProps {
