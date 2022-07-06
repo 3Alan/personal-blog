@@ -13,7 +13,7 @@
     "lint:fix": "eslint --fix --ext .js,.jsx ."
   },
   "dependencies": {
-    "@3alan/ui": "0.2.17",
+    "@3alan/ui": "0.3.13",
     "@fullpage/react-fullpage": "^0.1.19",
     "@mdx-js/loader": "^2.1.2",
     "@next/mdx": "^12.2.0",
