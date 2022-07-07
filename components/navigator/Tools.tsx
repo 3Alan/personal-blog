@@ -1,6 +1,5 @@
 import { FC, useContext } from 'react';
 import { FaMoon, FaSun, FaGithub, FaSistrix } from 'react-icons/fa';
-import Icon from '../common/Icon';
 import { ThemeContext, UPDATE_THEME } from '../ThemeContextProvider';
 
 export type ToolsProps = {
@@ -31,16 +30,13 @@ const Tools: FC<ToolsProps> = ({ toggleShowSearch }) => {
         onClick={toggleMode}
         className="sm:text-lg cursor-pointer hover:bg-gray-100 p-2 rounded-full dark:hover:bg-gray-700"
       >
-        <Icon
-          customStyle={{ color: theme === 'light' ? '#FCD34D' : '#F59E0B' }}
-          component={theme === 'light' ? <FaMoon /> : <FaSun />}
-        />
+        {theme === 'light' ? <FaMoon style={{ color: '#FCD34D' }} /> : <FaSun style={{ color: '#F59E0B' }} />}
       </div>
       <div
         onClick={toggleShowSearch}
         className="sm:text-lg cursor-pointer hover:bg-gray-100 p-2 rounded-full dark:hover:bg-gray-700"
       >
-        <Icon customStyle={{ color: '#3B82F6' }} component={<FaSistrix />} />
+        <FaSistrix style={{ color: '#3B82F6' }} />
       </div>
     </div>
   );

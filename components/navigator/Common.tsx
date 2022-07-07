@@ -1,7 +1,6 @@
 import { FaBasketballBall } from 'react-icons/fa';
 import Link from 'next/link';
 import Tools from './Tools';
-import Icon from '../common/Icon';
 import NavigatorWrapper from './Wrapper';
 import { FC } from 'react';
 
@@ -14,7 +13,7 @@ function HomeIcon() {
     <Link href="/">
       <a>
         <div className="flex items-center pl-5">
-          <Icon customStyle={{ color: '#fbb01f', className: 'text-xl' }} component={<FaBasketballBall />} />
+          <FaBasketballBall style={{ color: '#fbb01f' }} className="text-xl" />
         </div>
       </a>
     </Link>

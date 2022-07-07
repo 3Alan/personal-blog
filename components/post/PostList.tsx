@@ -7,6 +7,10 @@ export interface PostListProps {
 }
 
 const PostList: FC<PostListProps> = ({ posts, className }) => {
+  if (posts.length === 0) {
+    return null;
+  }
+
   return (
     <div className={className}>
       {posts.map((post) => (

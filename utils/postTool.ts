@@ -10,9 +10,16 @@ export function getPostSlugs(): string[] {
 }
 
 export function getPostBySlug(slug: string, fields = []): any {
-  const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const defaultExtension = '.mdx';
+  const realSlug = slug.replace(/\.mdx?$/, '');
+  const fullPath = join(postsDirectory, `${realSlug}${defaultExtension}`);
+  let fileContents;
+  try {
+    fileContents = fs.readFileSync(fullPath, 'utf8');
+  } catch (error) {
+    fileContents = fs.readFileSync(join(postsDirectory, `${realSlug}.md`), 'utf8');
+  }
+
   const { data, excerpt, content } = matter(fileContents, { excerpt_separator: '<!-- more -->' });
 
   const items = { excerpt };

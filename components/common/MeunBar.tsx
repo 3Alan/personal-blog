@@ -1,6 +1,5 @@
 import { FaSearch, FaRegComments, FaChevronUp } from 'react-icons/fa';
 import { FC } from 'react';
-import Icon from './Icon';
 import cn from 'classnames';
 
 export type MenuBarItemProps = {
@@ -35,16 +34,13 @@ const MenuBar: FC = () => {
   return (
     <>
       <MenuBarItem onClick={scrollToComment} className="bg-blue-100 hover:bg-blue-200">
-        <Icon
-          customStyle={{ color: '#3B82F6', className: 'text-xs dark:text-gray-900' }}
-          component={<FaRegComments />}
-        />
+        <FaRegComments style={{ color: '#3B82F6' }} className="text-xs dark:text-gray-900" />
       </MenuBarItem>
       <MenuBarItem onClick={scrollToTop} className="bg-blue-100 hover:bg-blue-200">
-        <Icon customStyle={{ color: '#60A5FA', className: 'text-xs dark:text-gray-900' }} component={<FaSearch />} />
+        <FaSearch style={{ color: '#60A5FA' }} className="text-xs dark:text-gray-900" />
       </MenuBarItem>
       <MenuBarItem onClick={scrollToTop}>
-        <Icon customStyle={{ color: '#9CA3AF', className: 'text-xs dark:text-gray-900' }} component={<FaChevronUp />} />
+        <FaChevronUp style={{ color: '#9CA3AF' }} className="text-xs dark:text-gray-900" />
       </MenuBarItem>
     </>
   );

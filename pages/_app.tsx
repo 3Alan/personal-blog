@@ -2,6 +2,8 @@ import '../styles/index.scss';
 import { ThemeContextProvider, ThemeContext, UPDATE_THEME } from '../components/ThemeContextProvider';
 import { useContext, useEffect } from 'react';
 import type { AppProps /* , AppContext */ } from 'next/app';
+import { MDXProvider } from '@mdx-js/react';
+import MappingComponents from '../components/post/MappingComponents';
 
 function ThemeProvider() {
   const { theme, dispatch } = useContext(ThemeContext);
@@ -31,10 +33,12 @@ function ThemeProvider() {
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeContextProvider>
-      <ThemeProvider />
-      <Component {...pageProps} />
-    </ThemeContextProvider>
+    <MDXProvider components={MappingComponents}>
+      <ThemeContextProvider>
+        <ThemeProvider />
+        <Component {...pageProps} />
+      </ThemeContextProvider>
+    </MDXProvider>
   );
 }
 

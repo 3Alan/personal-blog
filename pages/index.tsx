@@ -26,7 +26,7 @@ const Home: FC<IndexProps> = ({ postList }) => {
       <CommonNavigator toggleShowSearch={toggleShowSearch} />
       <Container className="pt-8">
         <div className="flex items-start">
-          {postList.length > 0 && <PostList posts={postList} className="md:mr-4 flex-1" />}
+          <PostList posts={postList} className="md:mr-4 flex-1" />
           <RecentComments className="hidden md:flex md:flex-col md:w-80" />
         </div>
       </Container>
